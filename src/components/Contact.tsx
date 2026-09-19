@@ -1,3 +1,5 @@
+import ThemeToggle from "@/components/ThemeToggle";
+
 export default function Contact() {
   return (
     <section id="contact" className="border-t border-border">
@@ -10,7 +12,7 @@ export default function Contact() {
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
           <a
             href="mailto:karankp20120@gmail.com"
-            className="rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-[#0b1220] transition-opacity hover:opacity-90"
+            className="rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
           >
             karankp20120@gmail.com
           </a>
@@ -33,8 +35,11 @@ export default function Contact() {
           </a>
         </div>
       </div>
-      <footer className="border-t border-border py-6 text-center text-xs text-muted">
-        © {new Date().getFullYear()} Karan Patel. Built with Next.js &amp; Tailwind.
+      <footer className="border-t border-border py-6">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-3 px-6 text-center text-xs text-muted sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} Karan Patel. Built with Next.js &amp; Tailwind.</p>
+          <ThemeToggle />
+        </div>
       </footer>
     </section>
   );

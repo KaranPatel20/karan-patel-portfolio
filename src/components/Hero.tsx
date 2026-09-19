@@ -15,7 +15,7 @@ export default function Hero() {
         <a
           href="/Karan_Patel_Resume.pdf"
           download
-          className="rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-[#0b1220] transition-opacity hover:opacity-90"
+          className="rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
         >
           Download Resume
         </a>
