@@ -36,7 +36,7 @@ const roles: Role[] = [
     location: "Ottawa, Canada (Remote)",
     period: "Aug 2025 – Dec 2025",
     bullets: [
-      "Monitored feature performance and validated data quality across production environments, tracking latency, error rates, and reliability metrics to identify and resolve service issues — reducing average inference latency by 25%.",
+      "Monitored feature performance and validated data quality across production environments, tracking latency, error rates, and reliability metrics to identify and resolve service issues, reducing average inference latency by 25%.",
       "Built and maintained automated data pipelines for real-time inference, managing requirements for data collection, preprocessing, and model update cycles with 99%+ reliability.",
       "Integrated mobile apps with RESTful APIs and third-party AI/ML services (image recognition, NLP chatbots, recommendation engines), improving feature delivery speed by 30%.",
       "Managed full app release cycles on Google Play and Apple App Store, enforcing security and privacy compliance (GDPR/PIPEDA).",
@@ -83,7 +83,7 @@ export default function Experience() {
               </div>
               <ul className="space-y-2 border-l border-border pl-5">
                 {role.bullets.map((bullet, i) => (
-                  <li key={i} className="text-sm leading-relaxed text-muted">
+                  <li key={i} className="text-justify text-sm leading-relaxed text-muted">
                     {bullet}
                   </li>
                 ))}

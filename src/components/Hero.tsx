@@ -5,9 +5,9 @@ export default function Hero() {
       <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
         I turn messy requirements into dashboards, KPIs, and decisions people trust.
       </h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+      <p className="mt-6 max-w-2xl text-justify text-lg leading-relaxed text-muted">
         3+ years gathering requirements, validating data, and building reporting that
-        stakeholders actually use — with an M.Sc. in Computer Science and hands-on AI/ML
+        stakeholders actually use, with an M.Sc. in Computer Science and hands-on AI/ML
         engineering experience (LLMs, RAG, computer vision, MLOps) I bring to data-heavy
         and technical teams alike.
       </p>

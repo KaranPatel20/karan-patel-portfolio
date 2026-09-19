@@ -4,6 +4,7 @@ type Project = {
   stack: string;
   period: string;
   points: string[];
+  links?: { label: string; href: string }[];
 };
 
 const projects: Project[] = [
@@ -13,13 +14,20 @@ const projects: Project[] = [
     stack: "Power BI, Excel, SQL, Flutter, Firebase",
     period: "Mar 2026 – Present",
     points: [
-      "Gathered requirements and designed an end-to-end operational reporting solution tracking submission volume, validation turnaround, reviewer workload, backlog, and SLA adherence.",
-      "Built a relational schema and complex SQL queries to compute KPIs; developed interactive Power BI/Excel dashboards for stakeholders to monitor trends and detect bottlenecks.",
-      "Translated dashboard insights into process and functional recommendations, reducing validation delays through stakeholder-facing reporting.",
+      "Built CrocWatch end to end with Flutter and Firebase, a citizen-science app that lets forest officers and researchers log crocodile sightings across India offline, for review before they go on a public conservation map. Development was AI-assisted with Claude Code, but the architecture, code review, and testing were mine, not vibe-coded.",
+      "Also designed the operational reporting layer behind it: a relational schema and Power BI/Excel dashboards tracking submission volume, validation turnaround, and reviewer workload, which cut validation delays and got approved sightings onto the map faster.",
+    ],
+    links: [
+      { label: "Website", href: "https://crocwatch.app/" },
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.crocwatch.latestapp",
+      },
+      { label: "App Store", href: "https://apps.apple.com/ua/app/croc-watch/id1598145012" },
     ],
   },
   {
-    name: "PositionTrackr — Automated Job Scraping & Analysis",
+    name: "PositionTrackr: Automated Job Scraping & Analysis",
     tag: "Data & BI",
     stack: "Python, Google Apps Script, Gemini API, Google Sheets",
     period: "Mar 2025",
@@ -37,9 +45,10 @@ const projects: Project[] = [
       "Built an agentic stock analysis bot using n8n workflows and LangChain with session memory, enabling contextual multi-turn financial discussions via Telegram.",
       "Applied 200-day EMA and technical indicators for automated trend detection; integrated RAG-style context retrieval to maintain conversation history across sessions.",
     ],
+    links: [{ label: "Try the bot", href: "https://t.me/karanpateln8n_bot" }],
   },
   {
-    name: "BugNet — Insect Species Classification (291 Classes)",
+    name: "BugNet: Insect Species Classification (291 Classes)",
     tag: "AI/ML",
     stack: "Transfer Learning, TensorFlow, OpenCV, Pandas",
     period: "Sep 2023 – Apr 2024",
@@ -49,7 +58,7 @@ const projects: Project[] = [
     ],
   },
   {
-    name: "NeuroXRay — Radiogenomic Medical Image Classifier",
+    name: "NeuroXRay: Radiogenomic Medical Image Classifier",
     tag: "AI/ML",
     stack: "TensorFlow, ResNet, Xception, Streamlit, Optuna",
     period: "Jun 2021 – Dec 2021",
@@ -87,11 +96,26 @@ export default function Projects() {
               <p className="text-xs text-muted">{project.period}</p>
               <ul className="mt-3 space-y-1.5">
                 {project.points.map((point, i) => (
-                  <li key={i} className="text-sm leading-relaxed text-muted">
+                  <li key={i} className="text-justify text-sm leading-relaxed text-muted">
                     {point}
                   </li>
                 ))}
               </ul>
+              {project.links && (
+                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 border-t border-border pt-3">
+                  {project.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs font-medium text-accent hover:underline"
+                    >
+                      {link.label} ↗
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>

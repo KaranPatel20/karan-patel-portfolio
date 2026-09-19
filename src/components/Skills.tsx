@@ -72,7 +72,7 @@ export default function Skills() {
 
         <div className="mt-10 rounded-lg border border-dashed border-border p-5">
           <h3 className="text-sm font-semibold text-foreground">
-            Also proficient in — AI/ML engineering
+            Also proficient in AI/ML engineering
           </h3>
           <p className="mt-1 text-sm text-muted">
             Relevant if you&apos;re hiring for an AI/ML or technical analyst role.

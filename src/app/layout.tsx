@@ -13,9 +13,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Karan Patel — Business & Data Analyst",
+  title: "Karan Patel | Business & Data Analyst",
   description:
-    "Karan Patel: Business/Data Analyst with 3+ years turning requirements into dashboards, KPI frameworks, and measurable process improvements — backed by hands-on AI/ML engineering experience.",
+    "Karan Patel: Business/Data Analyst with 3+ years turning requirements into dashboards, KPI frameworks, and measurable process improvements, backed by hands-on AI/ML engineering experience.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
