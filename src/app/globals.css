@@ -63,3 +63,34 @@ body {
   background: var(--accent);
   color: #0b1220;
 }
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(3%, -4%) scale(1.05); }
+  66% { transform: translate(-3%, 3%) scale(0.97); }
+}
+
+@keyframes blob-morph {
+  0%, 100% { border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%; }
+  50% { border-radius: 58% 42% 35% 65% / 55% 60% 40% 45%; }
+}
+
+.animate-blob {
+  animation: blob-float 14s ease-in-out infinite;
+}
+
+.animate-blob-slow {
+  animation: blob-float 20s ease-in-out infinite reverse;
+}
+
+.animate-blob-shape {
+  animation: blob-morph 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-blob-slow,
+  .animate-blob-shape {
+    animation: none;
+  }
+}

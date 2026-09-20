@@ -1,6 +1,10 @@
+import Image from "next/image";
+import ScrollReveal from "@/components/ScrollReveal";
+
 type Role = {
   title: string;
   company: string;
+  logo: string;
   note?: string;
   period: string;
   bullets: string[];
@@ -10,6 +14,7 @@ const roles: Role[] = [
   {
     title: "Technical Lead (Volunteer)",
     company: "Voluntary Nature Conservancy",
+    logo: "/logos/vnc.png",
     note: "Includes concurrent Data Analyst Intern scope, Jan 2026 – Present",
     period: "Jan 2022 – Present",
     bullets: [
@@ -24,6 +29,7 @@ const roles: Role[] = [
   {
     title: "Department Manager, General Merchandise",
     company: "Walmart Canada",
+    logo: "/logos/walmart.svg",
     period: "Oct 2024 – Present",
     bullets: [
       "Converted stakeholder requirements into Tableau dashboards tracking sales, task completion, on-shelf availability, and inventory health across departments.",
@@ -35,6 +41,7 @@ const roles: Role[] = [
   {
     title: "Data Analyst / ML Engineer",
     company: "Beta Code Technologies",
+    logo: "/logos/betacode.png",
     period: "Jun 2022 – Jul 2023",
     bullets: [
       "Built SQL/Python models targeting operational KPIs, driving a 15% improvement in process cycle time, validated pre/post-implementation.",
@@ -46,6 +53,7 @@ const roles: Role[] = [
   {
     title: "AI/ML Development Intern",
     company: "GoKidu Technologies Corp. (Remote)",
+    logo: "/logos/gokidu.svg",
     period: "Aug 2025 – Dec 2025",
     bullets: [
       "Monitored feature performance and data quality in production, tracking latency, error rates, and reliability metrics to catch and resolve issues early.",
@@ -62,24 +70,37 @@ export default function Experience() {
       <div className="mx-auto max-w-5xl px-6 py-16">
         <h2 className="font-mono text-sm text-accent">Experience</h2>
         <div className="mt-6 space-y-10">
-          {roles.map((role) => (
-            <div key={`${role.company}-${role.title}`} className="grid gap-2 sm:grid-cols-[1fr_2.5fr] sm:gap-8">
-              <div>
-                <p className="text-sm font-semibold text-foreground">{role.title}</p>
-                <p className="text-sm text-muted">{role.company}</p>
-                <p className="mt-1 text-xs text-muted">{role.period}</p>
-                {role.note && (
-                  <p className="mt-1 text-xs italic text-muted">{role.note}</p>
-                )}
+          {roles.map((role, i) => (
+            <ScrollReveal key={`${role.company}-${role.title}`} delay={i * 60}>
+              <div className="grid gap-4 sm:grid-cols-[1fr_2.5fr] sm:gap-8">
+                <div className="flex gap-3 sm:flex-col sm:gap-2">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
+                    <Image
+                      src={role.logo}
+                      alt={`${role.company} logo`}
+                      width={40}
+                      height={40}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{role.title}</p>
+                    <p className="text-sm text-muted">{role.company}</p>
+                    <p className="mt-1 text-xs text-muted">{role.period}</p>
+                    {role.note && (
+                      <p className="mt-1 text-xs italic text-muted">{role.note}</p>
+                    )}
+                  </div>
+                </div>
+                <ul className="space-y-2 border-l border-border pl-5">
+                  {role.bullets.map((bullet, j) => (
+                    <li key={j} className="text-justify text-sm leading-relaxed text-muted">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2 border-l border-border pl-5">
-                {role.bullets.map((bullet, i) => (
-                  <li key={i} className="text-justify text-sm leading-relaxed text-muted">
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

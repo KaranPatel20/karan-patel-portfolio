@@ -13,9 +13,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Karan Patel | Business & Data Analyst",
+  title: "Karan Patel | Data Analyst / Software Developer",
   description:
-    "Karan Patel: Business/Data Analyst with 3+ years turning requirements into dashboards, KPI frameworks, and measurable process improvements, backed by hands-on AI/ML engineering experience.",
+    "Karan Patel: Data Analyst and Software Developer with 3+ years turning requirements into dashboards, KPI frameworks, and measurable process improvements, backed by hands-on software and AI/ML engineering experience.",
 };
 
 const themeInitScript = `

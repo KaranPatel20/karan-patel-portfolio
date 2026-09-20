@@ -1,46 +1,56 @@
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa6";
+
+const links = [
+  { label: "karankp20120@gmail.com", href: "mailto:karankp20120@gmail.com", Icon: FaEnvelope },
+  { label: "LinkedIn", href: "https://linkedin.com/in/karanpatel", Icon: FaLinkedin },
+  { label: "GitHub", href: "https://github.com/KaranPatel20", Icon: FaGithub },
+];
+
 export default function Hero() {
   return (
-    <section id="top" className="mx-auto max-w-5xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
-      <p className="font-mono text-sm text-accent">Business &amp; Data Analyst</p>
-      <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-        I turn messy requirements into dashboards, KPIs, and decisions people trust.
-      </h1>
-      <p className="mt-6 max-w-2xl text-justify text-lg leading-relaxed text-muted">
-        3+ years gathering requirements, validating data, and building reporting that
-        stakeholders actually use, with an M.Sc. in Computer Science and hands-on AI/ML
-        engineering experience (LLMs, RAG, computer vision, MLOps) I bring to data-heavy
-        and technical teams alike.
-      </p>
-      <div className="mt-8 flex flex-wrap items-center gap-4">
-        <a
-          href="/Karan_Patel_Resume.pdf"
-          download
-          className="rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-        >
-          Download Resume
-        </a>
-        <a
-          href="mailto:karankp20120@gmail.com"
-          className="rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
-        >
-          karankp20120@gmail.com
-        </a>
-        <a
-          href="https://linkedin.com/in/karanpatel"
-          target="_blank"
-          rel="noreferrer"
-          className="text-sm font-medium text-muted transition-colors hover:text-accent"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/KaranPatel20"
-          target="_blank"
-          rel="noreferrer"
-          className="text-sm font-medium text-muted transition-colors hover:text-accent"
-        >
-          GitHub
-        </a>
+    <section
+      id="top"
+      className="relative mx-auto max-w-5xl overflow-hidden px-6 pt-16 pb-20 sm:pt-24 sm:pb-28"
+    >
+      <div
+        aria-hidden
+        className="animate-blob animate-blob-shape pointer-events-none absolute -right-24 -top-24 h-72 w-72 bg-accent/20 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="animate-blob-slow animate-blob-shape pointer-events-none absolute -left-16 top-40 h-56 w-56 bg-accent/10 blur-3xl"
+      />
+
+      <div className="relative grid gap-10 sm:grid-cols-[1fr_auto] sm:items-center">
+        <div>
+          <p className="font-mono text-sm text-accent">Data Analyst / Software Developer</p>
+          <h1 className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            I turn data into decisions, and ideas into software.
+          </h1>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
+            3+ years building dashboards, KPIs, and the software behind them.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-5">
+            {links.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noreferrer" : undefined}
+                className="flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-accent"
+              >
+                <Icon className="h-5 w-5" />
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center sm:justify-end">
+          <div className="animate-blob-shape flex h-40 w-40 shrink-0 items-center justify-center bg-gradient-to-br from-accent to-accent/40 text-4xl font-bold text-white shadow-lg sm:h-48 sm:w-48">
+            KP
+          </div>
+        </div>
       </div>
     </section>
   );

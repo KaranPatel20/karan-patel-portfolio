@@ -1,3 +1,7 @@
+import { FaMapLocationDot, FaBriefcase, FaChartLine, FaBug, FaXRay } from "react-icons/fa6";
+import type { IconType } from "react-icons";
+import ScrollReveal from "@/components/ScrollReveal";
+
 type Project = {
   name: string;
   tag: "Data & BI" | "AI/ML";
@@ -5,6 +9,8 @@ type Project = {
   period: string;
   points: string[];
   links?: { label: string; href: string }[];
+  Icon: IconType;
+  gradient: string;
 };
 
 const projects: Project[] = [
@@ -13,9 +19,11 @@ const projects: Project[] = [
     tag: "Data & BI",
     stack: "Power BI, Excel, SQL, Flutter, Firebase",
     period: "Mar 2026 – Present",
+    Icon: FaMapLocationDot,
+    gradient: "from-teal-500 to-emerald-400",
     points: [
-      "Built CrocWatch end to end with Flutter and Firebase, a citizen-science app that lets forest officers and researchers log crocodile sightings across India offline, for review before they go on a public conservation map. Development was AI-assisted with Claude Code, but the architecture, code review, and testing were mine, not vibe-coded.",
-      "Also designed the operational reporting layer behind it: a relational schema and Power BI/Excel dashboards tracking submission volume, validation turnaround, and reviewer workload, which cut validation delays and got approved sightings onto the map faster.",
+      "Built CrocWatch end to end (Flutter, Firebase), an offline crocodile-sighting app for India's conservation researchers, using AI-assisted development under my own architecture and review.",
+      "Designed the Power BI/Excel reporting layer tracking submission volume and reviewer workload, cutting validation delays.",
     ],
     links: [
       { label: "Website", href: "https://crocwatch.app/" },
@@ -31,9 +39,11 @@ const projects: Project[] = [
     tag: "Data & BI",
     stack: "Python, Google Apps Script, Gemini API, Google Sheets",
     period: "Mar 2025",
+    Icon: FaBriefcase,
+    gradient: "from-blue-500 to-cyan-400",
     points: [
-      "Engineered a fully automated, requirements-driven pipeline collecting and classifying tech job listings, reducing manual tracking effort by ~80%.",
-      "Used the Gemini API to extract and structure job metadata (role, skills, location, seniority), feeding a live Google Sheets dashboard for filtering and prioritization.",
+      "Automated Python pipeline scraping and classifying tech job listings, cutting manual tracking effort by ~80%.",
+      "Used the Gemini API to structure job metadata into a live, filterable Google Sheets dashboard.",
     ],
   },
   {
@@ -41,9 +51,11 @@ const projects: Project[] = [
     tag: "AI/ML",
     stack: "n8n, LangChain, Google Gemini, Telegram Bot API",
     period: "Dec 2025",
+    Icon: FaChartLine,
+    gradient: "from-emerald-500 to-teal-400",
     points: [
-      "Built an agentic stock analysis bot using n8n workflows and LangChain with session memory, enabling contextual multi-turn financial discussions via Telegram.",
-      "Applied 200-day EMA and technical indicators for automated trend detection; integrated RAG-style context retrieval to maintain conversation history across sessions.",
+      "Agentic stock analysis bot (n8n, LangChain) with session memory for multi-turn Telegram conversations.",
+      "Applies 200-day EMA and RAG-style context retrieval for automated trend detection.",
     ],
     links: [{ label: "Try the bot", href: "https://t.me/karanpateln8n_bot" }],
   },
@@ -52,9 +64,11 @@ const projects: Project[] = [
     tag: "AI/ML",
     stack: "Transfer Learning, TensorFlow, OpenCV, Pandas",
     period: "Sep 2023 – Apr 2024",
+    Icon: FaBug,
+    gradient: "from-lime-500 to-green-400",
     points: [
-      "Fine-tuned CNN models using transfer learning on a 291-class insect image dataset; achieved ~86% species-level accuracy, reducing misclassifications by 20% vs. prior baselines.",
-      "Collaborated with entomology experts for field validation; built a preprocessing pipeline with data augmentation to improve generalization.",
+      "Fine-tuned CNNs on a 291-class insect image dataset, reaching ~86% species-level accuracy.",
+      "Built an augmentation pipeline validated with entomology experts.",
     ],
   },
   {
@@ -62,9 +76,11 @@ const projects: Project[] = [
     tag: "AI/ML",
     stack: "TensorFlow, ResNet, Xception, Streamlit, Optuna",
     period: "Jun 2021 – Dec 2021",
+    Icon: FaXRay,
+    gradient: "from-indigo-500 to-purple-400",
     points: [
-      "Built a deep learning classifier (ResNet + Xception) detecting COVID-19, Pneumonia, Lung Cancer, and Brain Tumors from radiological images, achieving ~92% accuracy with Optuna hyperparameter tuning.",
-      "Deployed via a Streamlit web app, presented at the Derbi Foundation Hackathon.",
+      "Deep learning classifier (ResNet + Xception) detecting COVID-19, pneumonia, lung cancer, and brain tumors at ~92% accuracy.",
+      "Deployed via Streamlit and presented at the Derbi Foundation Hackathon.",
     ],
   },
 ];
@@ -75,48 +91,54 @@ export default function Projects() {
       <div className="mx-auto max-w-5xl px-6 py-16">
         <h2 className="font-mono text-sm text-accent">Projects</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          {projects.map((project) => (
-            <div
-              key={project.name}
-              className="flex flex-col rounded-lg border border-border bg-surface p-5"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="text-sm font-semibold text-foreground">{project.name}</h3>
-                <span
-                  className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-medium ${
-                    project.tag === "Data & BI"
-                      ? "bg-accent-soft text-accent"
-                      : "border border-border text-muted"
-                  }`}
+          {projects.map((project, i) => (
+            <ScrollReveal key={project.name} delay={i * 60}>
+              <div className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface transition-transform hover:-translate-y-1 hover:shadow-lg">
+                <div
+                  className={`flex h-24 w-full items-center justify-center bg-gradient-to-br ${project.gradient}`}
                 >
-                  {project.tag}
-                </span>
-              </div>
-              <p className="mt-1 font-mono text-xs text-muted">{project.stack}</p>
-              <p className="text-xs text-muted">{project.period}</p>
-              <ul className="mt-3 space-y-1.5">
-                {project.points.map((point, i) => (
-                  <li key={i} className="text-justify text-sm leading-relaxed text-muted">
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              {project.links && (
-                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 border-t border-border pt-3">
-                  {project.links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs font-medium text-accent hover:underline"
-                    >
-                      {link.label} ↗
-                    </a>
-                  ))}
+                  <project.Icon className="h-9 w-9 text-white/90" />
                 </div>
-              )}
-            </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-sm font-semibold text-foreground">{project.name}</h3>
+                    <span
+                      className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-medium ${
+                        project.tag === "Data & BI"
+                          ? "bg-accent-soft text-accent"
+                          : "border border-border text-muted"
+                      }`}
+                    >
+                      {project.tag}
+                    </span>
+                  </div>
+                  <p className="mt-1 font-mono text-xs text-muted">{project.stack}</p>
+                  <p className="text-xs text-muted">{project.period}</p>
+                  <ul className="mt-3 space-y-1.5">
+                    {project.points.map((point, j) => (
+                      <li key={j} className="text-justify text-sm leading-relaxed text-muted">
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  {project.links && (
+                    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 border-t border-border pt-3">
+                      {project.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-xs font-medium text-accent hover:underline"
+                        >
+                          {link.label} ↗
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
