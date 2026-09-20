@@ -6,13 +6,19 @@ const certifications = [
     name: "Preparing Data for Analysis with Microsoft Excel",
     issuer: "Coursera (Microsoft)",
     date: "Sep 2026",
-    href: "https://www.coursera.org/learn/preparing-data-for-analysis-with-microsoft-excel",
+    href: "https://coursera.org/share/7c69c7b1ebfc1c70378d241bd332a7d1",
+  },
+  {
+    name: "Machine Learning in Production",
+    issuer: "DeepLearning.AI",
+    date: "May 2026",
+    href: "https://coursera.org/share/0ba444525a2508539daea61db5b66344",
   },
   {
     name: "Oracle Generative AI Professional",
     issuer: "Oracle",
     date: "Oct 2025",
-    href: "https://learn.oracle.com/ols/course/oracle-cloud-infrastructure-generative-ai-professional/138070/136035",
+    href: "https://drive.google.com/file/d/1HZApNai0pe1iOnR59PgtpIRwN2cWe5oE/view?usp=drive_link",
   },
   {
     name: "Foundations: Data, Data, Everywhere",
