@@ -3,7 +3,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export default function About() {
   return (
     <section id="about" className="border-t border-border bg-surface/40">
-      <div className="mx-auto max-w-5xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="font-mono text-sm text-accent">About</h2>
         <div className="mt-4 grid gap-8 sm:grid-cols-[1.3fr_1fr]">
           <ScrollReveal>

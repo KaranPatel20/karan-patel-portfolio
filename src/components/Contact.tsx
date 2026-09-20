@@ -12,7 +12,7 @@ const links = [
 export default function Contact() {
   return (
     <section id="contact" className="border-t border-border">
-      <div className="mx-auto max-w-5xl px-6 py-16 text-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
         <h2 className="font-mono text-sm text-accent">Contact</h2>
         <p className="mt-4 text-2xl font-semibold text-foreground">
           Let&apos;s talk about your data or analytics team.
@@ -33,7 +33,7 @@ export default function Contact() {
         </div>
       </div>
       <footer className="border-t border-border py-6">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-3 px-6 text-center text-xs text-muted sm:flex-row sm:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-4 sm:px-6 lg:px-8 text-center text-xs text-muted sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} Karan Patel. Built with Next.js &amp; Tailwind.</p>
           <ThemeToggle />
         </div>

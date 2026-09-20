@@ -93,7 +93,7 @@ function SkillColumn({
 export default function Skills() {
   return (
     <section id="skills" className="border-t border-border">
-      <div className="mx-auto max-w-5xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="font-mono text-sm text-accent">Skills, Tools &amp; Technologies</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {primary.map((group, i) => (

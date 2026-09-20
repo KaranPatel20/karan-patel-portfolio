@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative mx-auto max-w-5xl overflow-hidden px-6 pt-16 pb-20 sm:pt-24 sm:pb-28"
+      className="relative mx-auto max-w-7xl overflow-hidden px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28"
     >
       <div
         aria-hidden
@@ -22,7 +22,7 @@ export default function Hero() {
       />
 
       <div className="relative grid gap-10 sm:grid-cols-[1fr_auto] sm:items-center">
-        <div>
+        <div className="order-2 sm:order-1">
           <p className="font-mono text-sm text-accent">Data Analyst / Software Developer</p>
           <h1 className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             I turn data into decisions, and ideas into software.
@@ -44,9 +44,16 @@ export default function Hero() {
               </a>
             ))}
           </div>
+          <a
+            href="/Karan_Patel_Resume.pdf"
+            download
+            className="mt-6 block w-full rounded-md bg-gradient-to-br from-accent to-accent/40 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg transition-opacity hover:opacity-90 sm:hidden"
+          >
+            Resume
+          </a>
         </div>
 
-        <div className="flex justify-center sm:justify-end">
+        <div className="order-1 flex justify-center sm:order-2 sm:justify-end">
           <div className="animate-blob-shape flex h-40 w-40 shrink-0 items-center justify-center bg-gradient-to-br from-accent to-accent/40 text-4xl font-bold text-white shadow-lg sm:h-48 sm:w-48">
             KP
           </div>
