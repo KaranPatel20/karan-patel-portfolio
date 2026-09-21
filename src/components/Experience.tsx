@@ -14,7 +14,7 @@ const roles: Role[] = [
   {
     title: "Technical Lead (Volunteer)",
     company: "Voluntary Nature Conservancy",
-    logo: "/logos/vnc.png",
+    logo: "/logos/vnc_logo.png",
     note: "Includes concurrent Data Analyst Intern scope, Jan 2026 – Present",
     period: "Jan 2022 – Present",
     bullets: [
@@ -92,7 +92,7 @@ export default function Experience() {
                     )}
                   </div>
                 </div>
-                <ul className="space-y-2 border-l border-border pl-5">
+                <ul className="list-disc space-y-2 border-l border-border pl-9 marker:text-accent">
                   {role.bullets.map((bullet, j) => (
                     <li key={j} className="text-justify text-sm leading-relaxed text-muted">
                       {bullet}

@@ -8,19 +8,20 @@ export default function About() {
         <div className="mt-4 grid gap-8 sm:grid-cols-[1.3fr_1fr]">
           <ScrollReveal>
             <p className="text-justify text-base leading-relaxed text-muted">
-              I like sitting between the people who need answers and the data that has
-              them. Over the last few years at Walmart, a wildlife conservation
-              nonprofit, and a couple of tech teams, I&apos;ve gathered requirements,
-              built dashboards, and chased down why the numbers didn&apos;t add up.
+              I like sitting between the people who need answers and the data that has them. Across Walmart, 
+              a wildlife conservation nonprofit, and a couple of tech teams, I&apos;ve spent the last few years 
+              gathering requirements, building dashboards, and chasing down why the numbers didn&apos;t add up.
+
+
             </p>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <p className="text-justify text-base leading-relaxed text-muted">
-              What&apos;s a little different about me is that I don&apos;t stop at the
-              analysis. I have an M.Sc. in Computer Science, I built a citizen-science
-              app (CrocWatch) from scratch, and I&apos;m just as comfortable in an ML
-              pipeline as I am in a spreadsheet. If something needs building, I&apos;d
-              rather build it than hand it off.
+              What sets me apart is that I don&apos;t stop at analysis. With an M.Sc. in Computer Science, 
+              I&apos;m just as comfortable in an ML pipeline as I am in a spreadsheet, and honestly, I&apos;d rather 
+              build the solution myself than just hand off a recommendation. CrocWatch, a citizen-science 
+              app I built from scratch, is a good example of that. When I&apos;m not coding, you&apos;ll probably find 
+              me out in nature, hiking or with a camera in hand.
             </p>
           </ScrollReveal>
         </div>

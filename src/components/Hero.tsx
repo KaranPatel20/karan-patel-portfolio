@@ -25,22 +25,23 @@ export default function Hero() {
         <div className="order-2 sm:order-1">
           <p className="font-mono text-sm text-accent">Data Analyst / Software Developer</p>
           <h1 className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            I turn data into decisions, and ideas into software.
+            Hi, I'm Karan!
           </h1>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
-            3+ years building dashboards, KPIs, and the software behind them.
+            I turn data into decisions, and ideas into software. 3+ years building dashboards, KPIs, and the software behind them.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-5">
-            {links.map(({ label, href, Icon }) => (
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:justify-start">
+            {links.map(({label, href, Icon }) => (
               <a
                 key={label}
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
-                className="flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-accent"
+                aria-label={label}
+                className="flex items-center gap-2 text-muted transition-colors hover:text-accent"
               >
-                <Icon className="h-5 w-5" />
-                {label}
+                <Icon className="h-8 w-8" />
+                {/*label*/}
               </a>
             ))}
           </div>
