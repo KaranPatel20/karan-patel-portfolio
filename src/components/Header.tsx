@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 import { FaBars, FaXmark } from "react-icons/fa6";
 
 const links = [
@@ -18,7 +19,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-8 sm:px-12 lg:px-16 py-4">
         <a href="#top" className="font-mono text-sm font-semibold tracking-tight text-foreground">
           Karan Patel
         </a>
@@ -36,6 +37,7 @@ export default function Header() {
         <a
           href="/Karan_Patel_Resume.pdf"
           download
+          onClick={() => track("resume_download", { location: "header" })}
           className="hidden rounded-md border border-accent/40 px-3 py-1.5 text-sm font-medium text-accent transition-colors hover:bg-accent-soft sm:block"
         >
           Resume

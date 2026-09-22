@@ -1,16 +1,32 @@
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa6";
+import TrackedLink from "@/components/TrackedLink";
 
 const links = [
-  { label: "karankp20120@gmail.com", href: "mailto:karankp20120@gmail.com", Icon: FaEnvelope },
-  { label: "LinkedIn", href: "https://linkedin.com/in/karanpatel20120", Icon: FaLinkedin },
-  { label: "GitHub", href: "https://github.com/KaranPatel20", Icon: FaGithub },
+  {
+    label: "karankp20120@gmail.com",
+    href: "mailto:karankp20120@gmail.com",
+    Icon: FaEnvelope,
+    platform: "email",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/karanpatel20120",
+    Icon: FaLinkedin,
+    platform: "linkedin",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/KaranPatel20",
+    Icon: FaGithub,
+    platform: "github",
+  },
 ];
 
 export default function Hero() {
   return (
     <section
       id="top"
-      className="relative mx-auto max-w-7xl overflow-hidden px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28"
+      className="relative mx-auto max-w-7xl overflow-hidden px-8 sm:px-12 lg:px-16 pt-16 pb-20 sm:pt-24 sm:pb-28"
     >
       <div
         aria-hidden
@@ -31,27 +47,31 @@ export default function Hero() {
             I turn data into decisions, and ideas into software. 3+ years building dashboards, KPIs, and the software behind them.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:justify-start">
-            {links.map(({label, href, Icon }) => (
-              <a
+            {links.map(({ label, href, Icon, platform }) => (
+              <TrackedLink
                 key={label}
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
                 aria-label={label}
+                event="social_click"
+                eventProps={{ platform, location: "hero" }}
                 className="flex items-center gap-2 text-muted transition-colors hover:text-accent"
               >
                 <Icon className="h-8 w-8" />
                 {/*label*/}
-              </a>
+              </TrackedLink>
             ))}
           </div>
-          <a
+          <TrackedLink
             href="/Karan_Patel_Resume.pdf"
             download
+            event="resume_download"
+            eventProps={{ location: "hero_mobile" }}
             className="mt-6 block w-full rounded-md bg-gradient-to-br from-accent to-accent/40 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg transition-opacity hover:opacity-90 sm:hidden"
           >
             Resume
-          </a>
+          </TrackedLink>
         </div>
 
         <div className="order-1 flex justify-center sm:order-2 sm:justify-end">

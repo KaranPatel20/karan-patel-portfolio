@@ -21,7 +21,7 @@ const education = [
 export default function Education() {
   return (
     <section id="education" className="border-t border-border bg-surface/40">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
         <h2 className="font-mono text-sm text-accent">Education</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {education.map((e, i) => (

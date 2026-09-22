@@ -67,7 +67,7 @@ const roles: Role[] = [
 export default function Experience() {
   return (
     <section id="experience" className="border-t border-border bg-surface/40">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
         <h2 className="font-mono text-sm text-accent">Experience</h2>
         <div className="mt-6 space-y-10">
           {roles.map((role, i) => (
