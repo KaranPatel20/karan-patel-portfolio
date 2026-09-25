@@ -44,7 +44,6 @@ const primary = [
 
 const secondary = {
   title: "AI/ML Engineering",
-  /*note: "Relevant if you're hiring for an AI/ML or technical analyst role.",*/
   items: [
     "Python (Pandas, NumPy, scikit-learn)",
     "LangChain / RAG / Agentic AI",
@@ -56,25 +55,10 @@ const secondary = {
   ],
 };
 
-function SkillColumn({
-  title,
-  items,
-  //note,
-  muted = false,
-}: {
-  title: string;
-  items: string[];
-  //note?: string;
-  muted?: boolean;
-}) {
+function SkillColumn({ title, items }: { title: string; items: string[] }) {
   return (
-    <div
-      className={`rounded-xl border p-5 transition-transform hover:-translate-y-1 ${
-        muted ? "border-dashed border-border" : "border-border bg-surface"
-      }`}
-    >
+    <div className="rounded-xl border border-border bg-surface p-5 transition-transform hover:-translate-y-1">
       <h3 className="text-base font-semibold text-foreground">{title}</h3>
-      {/*note && <p className="mt-1 text-xs text-muted">{note}</p>*/}
       <div className="mt-4 flex flex-col gap-2.5">
         {items.map((item, i) => (
           <div
@@ -102,12 +86,7 @@ export default function Skills() {
             </ScrollReveal>
           ))}
           <ScrollReveal delay={primary.length * 80}>
-            <SkillColumn
-              title={secondary.title}
-              items={secondary.items}
-              //note={secondary.note}
-              muted
-            />
+            <SkillColumn title={secondary.title} items={secondary.items} />
           </ScrollReveal>
         </div>
       </div>
