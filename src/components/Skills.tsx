@@ -44,7 +44,7 @@ const primary = [
 
 const secondary = {
   title: "AI/ML Engineering",
-  note: "Relevant if you're hiring for an AI/ML or technical analyst role.",
+  /*note: "Relevant if you're hiring for an AI/ML or technical analyst role.",*/
   items: [
     "Python (Pandas, NumPy, scikit-learn)",
     "LangChain / RAG / Agentic AI",
