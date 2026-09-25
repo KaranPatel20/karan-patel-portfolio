@@ -59,12 +59,12 @@ const secondary = {
 function SkillColumn({
   title,
   items,
-  note,
+  //note,
   muted = false,
 }: {
   title: string;
   items: string[];
-  note?: string;
+  //note?: string;
   muted?: boolean;
 }) {
   return (
@@ -74,7 +74,7 @@ function SkillColumn({
       }`}
     >
       <h3 className="text-base font-semibold text-foreground">{title}</h3>
-      {note && <p className="mt-1 text-xs text-muted">{note}</p>}
+      {/*note && <p className="mt-1 text-xs text-muted">{note}</p>*/}
       <div className="mt-4 flex flex-col gap-2.5">
         {items.map((item, i) => (
           <div
@@ -105,7 +105,7 @@ export default function Skills() {
             <SkillColumn
               title={secondary.title}
               items={secondary.items}
-              note={secondary.note}
+              //note={secondary.note}
               muted
             />
           </ScrollReveal>
