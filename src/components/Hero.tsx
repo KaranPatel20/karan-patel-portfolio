@@ -59,7 +59,6 @@ export default function Hero() {
                 className="flex items-center gap-2 text-muted transition-colors hover:text-accent"
               >
                 <Icon className="h-8 w-8" />
-                {/*label*/}
               </TrackedLink>
             ))}
           </div>

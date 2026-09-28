@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ScrollReveal from "@/components/ScrollReveal";
 
 const education = [
   {
@@ -24,27 +23,25 @@ export default function Education() {
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
         <h2 className="font-mono text-sm text-accent">Education</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          {education.map((e, i) => (
-            <ScrollReveal key={e.degree} delay={i * 80}>
-              <div className="flex gap-3">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
-                  <Image
-                    src={e.logo}
-                    alt={`${e.school} logo`}
-                    width={40}
-                    height={40}
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{e.degree}</p>
-                  <p className="text-sm text-muted">{e.school}</p>
-                  <p className="text-xs text-muted">
-                    {e.period} · {e.detail}
-                  </p>
-                </div>
+          {education.map((e) => (
+            <div key={e.degree} className="flex gap-3">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
+                <Image
+                  src={e.logo}
+                  alt={`${e.school} logo`}
+                  width={40}
+                  height={40}
+                  className="h-full w-full object-contain"
+                />
               </div>
-            </ScrollReveal>
+              <div>
+                <p className="text-sm font-semibold text-foreground">{e.degree}</p>
+                <p className="text-sm text-muted">{e.school}</p>
+                <p className="text-xs text-muted">
+                  {e.period} · {e.detail}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

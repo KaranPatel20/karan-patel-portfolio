@@ -1,7 +1,3 @@
-import ScrollReveal from "@/components/ScrollReveal";
-
-const palette = ["#8b5cf6", "#3b82f6", "#10b981", "#f97316", "#ef4444", "#14b8a6", "#6366f1"];
-
 const primary = [
   {
     title: "Requirements & Analysis",
@@ -57,14 +53,13 @@ const secondary = {
 
 function SkillColumn({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-xl border border-border bg-surface p-5 transition-transform hover:-translate-y-1">
+    <div className="rounded-xl border border-border bg-surface p-5 transition-shadow hover:shadow-md">
       <h3 className="text-base font-semibold text-foreground">{title}</h3>
       <div className="mt-4 flex flex-col gap-2.5">
-        {items.map((item, i) => (
+        {items.map((item) => (
           <div
             key={item}
-            className="rounded-lg border-2 bg-surface px-4 py-2 text-sm font-medium text-foreground"
-            style={{ borderColor: palette[i % palette.length] }}
+            className="rounded-md border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent"
           >
             {item}
           </div>
@@ -80,14 +75,10 @@ export default function Skills() {
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
         <h2 className="font-mono text-sm text-accent">Skills, Tools &amp; Technologies</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {primary.map((group, i) => (
-            <ScrollReveal key={group.title} delay={i * 80}>
-              <SkillColumn title={group.title} items={group.items} />
-            </ScrollReveal>
+          {primary.map((group) => (
+            <SkillColumn key={group.title} title={group.title} items={group.items} />
           ))}
-          <ScrollReveal delay={primary.length * 80}>
-            <SkillColumn title={secondary.title} items={secondary.items} />
-          </ScrollReveal>
+          <SkillColumn title={secondary.title} items={secondary.items} />
         </div>
       </div>
     </section>
