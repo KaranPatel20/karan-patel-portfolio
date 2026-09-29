@@ -34,8 +34,8 @@ export default function Contact() {
   return (
     <section id="contact" className="border-t border-border">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16 text-center">
-        <h2 className="font-mono text-sm text-accent">Contact</h2>
-        <p className="mt-4 text-2xl font-semibold text-foreground">
+        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Contact</h2>
+        <p className="mt-4 font-mono text-2xl text-foreground">
           Let&apos;s talk about your data or analytics team.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-6">

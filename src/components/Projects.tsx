@@ -82,7 +82,7 @@ export default function Projects() {
   return (
     <section id="projects" className="border-t border-border">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="font-mono text-sm text-accent">Projects</h2>
+        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Projects</h2>
         <p className="mt-1 hidden text-xs text-muted sm:block">Hover a card for details.</p>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => {
@@ -99,11 +99,11 @@ export default function Projects() {
             return (
               <div
                 key={project.name}
-                className="group rounded-lg border border-border bg-surface p-4 transition-shadow hover:shadow-md"
+                className="group rounded-[32px] border border-border bg-surface p-4 transition-shadow hover:shadow-md"
               >
                 <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-accent">
-                    <project.Icon className="h-5 w-5 text-white" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent">
+                    <project.Icon className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-start justify-between gap-2">
@@ -111,9 +111,9 @@ export default function Projects() {
                         {project.name}
                       </h3>
                       <span
-                        className={`shrink-0 rounded-md px-2 py-0.5 text-[11px] font-medium ${
+                        className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-medium ${
                           project.tag === "Data & BI"
-                            ? "bg-accent-soft text-accent"
+                            ? "bg-accent-2-soft text-accent-2"
                             : "border border-border text-muted"
                         }`}
                       >

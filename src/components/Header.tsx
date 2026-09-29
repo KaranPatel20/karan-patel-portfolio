@@ -20,10 +20,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 sm:px-12 lg:px-16 py-4">
-        <a href="#top" className="font-mono text-sm font-semibold tracking-tight text-foreground">
-          Karan Patel
+        <a href="#top" className="font-mono text-[22px] text-foreground">
+          kp.
         </a>
-        <nav className="hidden gap-6 text-sm text-muted sm:flex">
+        <nav className="hidden gap-[26px] text-[15px] font-semibold text-foreground sm:flex">
           {links.map((link) => (
             <a
               key={link.href}
@@ -38,7 +38,7 @@ export default function Header() {
           href="/Karan_Patel_Resume.pdf"
           download
           onClick={() => track("resume_download", { location: "header" })}
-          className="hidden rounded-md border border-accent/40 px-3 py-1.5 text-sm font-medium text-accent transition-colors hover:bg-accent-soft sm:block"
+          className="hidden rounded-full border border-border px-4 py-1.5 font-mono text-sm text-foreground transition-colors hover:bg-foreground/5 sm:block"
         >
           Resume
         </a>

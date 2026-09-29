@@ -77,7 +77,7 @@ function SkillColumn({
 }) {
   return (
     <div
-      className={`rounded-xl border border-border bg-surface p-5 transition-shadow hover:shadow-md ${className}`}
+      className={`rounded-[32px] border border-border bg-surface p-5 transition-shadow hover:shadow-md ${className}`}
     >
       <h3 className="text-base font-semibold text-foreground">{title}</h3>
       <div className="mt-4 flex flex-wrap gap-2">
@@ -98,7 +98,7 @@ export default function Skills() {
   return (
     <section id="skills" className="border-t border-border">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="font-mono text-sm text-accent">Skills, Tools &amp; Technologies</h2>
+        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Skills, Tools &amp; Technologies</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {primary.map((group) => (
             <SkillColumn key={group.title} title={group.title} items={group.items} />
