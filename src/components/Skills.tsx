@@ -41,25 +41,50 @@ const primary = [
 const secondary = {
   title: "AI/ML Engineering",
   items: [
-    "Python (Pandas, NumPy, scikit-learn)",
-    "LangChain / RAG / Agentic AI",
-    "TensorFlow, PyTorch, CNNs, Transformers",
-    "FastAPI, Flask, REST APIs",
-    "MLflow, Airflow, Docker",
-    "AWS / GCP / Azure",
-    "Prompt engineering & LLM fine-tuning",
+    "Python",
+    "Pandas",
+    "NumPy",
+    "scikit-learn",
+    "LangChain",
+    "RAG",
+    "Agentic AI",
+    "TensorFlow",
+    "PyTorch",
+    "CNNs",
+    "Transformers",
+    "FastAPI",
+    "Flask",
+    "REST APIs",
+    "MLflow",
+    "Airflow",
+    "Docker",
+    "AWS",
+    "GCP",
+    "Azure",
+    "Prompt engineering",
+    "LLM fine-tuning",
   ],
 };
 
-function SkillColumn({ title, items }: { title: string; items: string[] }) {
+function SkillColumn({
+  title,
+  items,
+  className = "",
+}: {
+  title: string;
+  items: string[];
+  className?: string;
+}) {
   return (
-    <div className="rounded-xl border border-border bg-surface p-5 transition-shadow hover:shadow-md">
+    <div
+      className={`rounded-xl border border-border bg-surface p-5 transition-shadow hover:shadow-md ${className}`}
+    >
       <h3 className="text-base font-semibold text-foreground">{title}</h3>
-      <div className="mt-4 flex flex-col gap-2.5">
+      <div className="mt-4 flex flex-wrap gap-2">
         {items.map((item) => (
           <div
             key={item}
-            className="rounded-md border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent"
+            className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-accent"
           >
             {item}
           </div>
@@ -78,7 +103,11 @@ export default function Skills() {
           {primary.map((group) => (
             <SkillColumn key={group.title} title={group.title} items={group.items} />
           ))}
-          <SkillColumn title={secondary.title} items={secondary.items} />
+          <SkillColumn
+            title={secondary.title}
+            items={secondary.items}
+            className="sm:col-span-2 lg:col-span-3"
+          />
         </div>
       </div>
     </section>
