@@ -1,22 +1,25 @@
 "use client";
 
 import { track } from "@vercel/analytics";
-import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa6";
-import { SiMedium } from "react-icons/si";
-import SocialFlipButton, { type SocialItem } from "@/components/ui/social-flip-button";
+import { FaEnvelope, FaLinkedin, FaGithub, FaMedium } from "react-icons/fa6";
+import { MaskedAvatars, type MaskedAvatar } from "@/components/ui/masked-avatars";
 
 const socials = [
-  { label: "Email", letter: "E", href: "mailto:karankp20120@gmail.com", platform: "email", icon: <FaEnvelope /> },
-  { label: "LinkedIn", letter: "L", href: "https://linkedin.com/in/karanpatel20120", platform: "linkedin", icon: <FaLinkedin /> },
-  { label: "GitHub", letter: "G", href: "https://github.com/KaranPatel20", platform: "github", icon: <FaGithub /> },
-  { label: "Medium", letter: "M", href: "https://medium.com/@karanpatel20", platform: "medium", icon: <SiMedium /> },
+  { name: "Email", href: "mailto:karankp20120@gmail.com", platform: "email", icon: <FaEnvelope /> },
+  { name: "LinkedIn", href: "https://linkedin.com/in/karanpatel20120", platform: "linkedin", icon: <FaLinkedin /> },
+  { name: "GitHub", href: "https://github.com/KaranPatel20", platform: "github", icon: <FaGithub /> },
+  { name: "Medium", href: "https://medium.com/@karanpatel20", platform: "medium", icon: <FaMedium /> },
 ];
 
 export default function ContactSocials() {
-  const items: SocialItem[] = socials.map(({ platform, ...item }) => ({
+  const avatars: MaskedAvatar[] = socials.map(({ platform, ...item }) => ({
     ...item,
     onClick: () => track("social_click", { platform, location: "contact" }),
   }));
 
-  return <SocialFlipButton items={items} className="mt-6" />;
+  return (
+    <div className="mt-20 flex justify-center">
+      <MaskedAvatars avatars={avatars} size={60} column={50} border={4} movement={0.55} />
+    </div>
+  );
 }
