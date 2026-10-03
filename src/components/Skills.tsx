@@ -77,14 +77,14 @@ function SkillColumn({
 }) {
   return (
     <div
-      className={`rounded-[32px] border border-border bg-surface p-5 transition-shadow hover:shadow-md ${className}`}
+      className={`rounded-lg bg-surface p-5 elev-hover ${className}`}
     >
-      <h3 className="text-base font-semibold text-foreground">{title}</h3>
+      <h3 className="text-[17px] font-medium leading-tight text-foreground">{title}</h3>
       <div className="mt-4 flex flex-wrap gap-2">
         {items.map((item) => (
           <div
             key={item}
-            className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-accent"
+            className="rounded-md bg-neutral-800 px-2.5 py-[3px] text-[11px] tracking-[0.02em] text-neutral-100 transition-colors hover:bg-accent-800 hover:text-accent-100"
           >
             {item}
           </div>
@@ -96,9 +96,9 @@ function SkillColumn({
 
 export default function Skills() {
   return (
-    <section id="skills" className="border-t border-border">
+    <section id="skills" className="rule-top">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Skills, Tools &amp; Technologies</h2>
+        <h2 className="text-xs font-medium uppercase tracking-[0.1em] text-accent">Skills, Tools &amp; Technologies</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {primary.map((group) => (
             <SkillColumn key={group.title} title={group.title} items={group.items} />

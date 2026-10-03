@@ -1,6 +1,5 @@
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa6";
 import { SiMedium } from "react-icons/si";
-import ThemeToggle from "@/components/ThemeToggle";
 import TrackedLink from "@/components/TrackedLink";
 
 const links = [
@@ -32,10 +31,10 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="border-t border-border">
+    <section id="contact" className="rule-top">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16 text-center">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Contact</h2>
-        <p className="mt-4 font-mono text-2xl text-foreground">
+        <h2 className="text-xs font-medium uppercase tracking-[0.1em] text-accent">Contact</h2>
+        <p className="mt-4 font-medium text-2xl text-foreground">
           Let&apos;s talk about your data or analytics team.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-6">
@@ -55,10 +54,9 @@ export default function Contact() {
           ))}
         </div>
       </div>
-      <footer className="border-t border-border py-6">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-8 sm:px-12 lg:px-16 text-center text-xs text-muted sm:flex-row sm:justify-between">
+      <footer className="rule-top py-6">
+        <div className="mx-auto max-w-7xl px-8 text-center text-xs text-muted sm:px-12 lg:px-16">
           <p>© {new Date().getFullYear()} Karan Patel. Built with Next.js &amp; Tailwind.</p>
-          <ThemeToggle />
         </div>
       </footer>
     </section>

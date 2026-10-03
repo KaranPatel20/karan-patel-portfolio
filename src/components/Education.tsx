@@ -19,16 +19,16 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="border-t border-border bg-surface/40">
+    <section id="education" className="rule-top">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Education</h2>
+        <h2 className="text-xs font-medium uppercase tracking-[0.1em] text-accent">Education</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {education.map((e) => (
             <div
               key={e.degree}
-              className="flex gap-3 rounded-[32px] border border-border bg-surface p-5"
+              className="flex gap-3 rounded-lg bg-surface p-5"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white p-1.5 shadow-sm">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
                 <Image
                   src={e.logo}
                   alt={`${e.school} logo`}
@@ -38,7 +38,7 @@ export default function Education() {
                 />
               </div>
               <div>
-                <p className="font-mono text-base text-foreground">{e.degree}</p>
+                <p className="font-medium text-base text-foreground">{e.degree}</p>
                 <p className="text-sm text-muted">{e.school}</p>
                 <p className="text-xs text-muted">
                   {e.period} · {e.detail}

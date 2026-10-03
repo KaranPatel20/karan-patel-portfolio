@@ -18,65 +18,66 @@ const links = [
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-[120px] -top-20 h-[360px] w-[360px] rounded-full bg-accent-2-soft"
-      />
-
-      <div className="relative mx-auto max-w-7xl px-8 pb-8 pt-16 sm:px-12 sm:pt-24 lg:px-16">
-        <span className="inline-flex items-center rounded-full bg-accent-2-soft px-2.5 py-1 text-[11px] tracking-wide text-accent-2">
-          Data Analyst / Software Developer
-        </span>
-        <h1 className="text-balance mt-4 font-mono text-[clamp(2.75rem,7vw,4.75rem)] font-normal leading-none tracking-[-0.015em] text-foreground">
-          Hi, I&apos;m Karan.
-        </h1>
-        <p className="mb-6 mt-4 max-w-[480px] text-lg leading-[1.55] text-foreground/90">
-          I turn data into decisions, and ideas into software. 3+ years building dashboards,
-          KPIs, and the software behind them.
-        </p>
-        <div className="flex flex-wrap items-center gap-3">
-          <a
-            href="#projects"
-            className="inline-flex items-center justify-center rounded-full bg-accent px-4 py-2.5 font-mono text-sm text-background transition-colors hover:bg-accent-hover active:bg-accent-active"
-          >
-            See my work
-          </a>
-          <TrackedLink
-            href="mailto:karankp20120@gmail.com"
-            event="social_click"
-            eventProps={{ platform: "email", location: "hero" }}
-            className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2.5 font-mono text-sm text-foreground transition-colors hover:bg-foreground/5 active:bg-foreground/10"
-          >
-            Email me
-          </TrackedLink>
-        </div>
-
-        <div className="mt-6 flex flex-wrap items-center gap-5">
-          {links.map(({ label, href, Icon, platform }) => (
-            <TrackedLink
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={label}
-              event="social_click"
-              eventProps={{ platform, location: "hero" }}
-              className="flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
+    <section id="top">
+      <div className="mx-auto max-w-7xl px-8 pb-16 pt-16 sm:px-12 sm:pt-24 lg:px-16">
+        <div className="max-w-[620px]">
+          <div
+            aria-hidden
+            className="h-0.5 w-8 bg-accent shadow-[0_0_12px_var(--accent)]"
+          />
+          <p className="mt-6 text-[10px] uppercase tracking-[0.1em] text-accent">
+            Data Analyst / Software Developer
+          </p>
+          <h1 className="mt-3 text-balance text-[clamp(36px,6vw,56px)] leading-[1.05] tracking-[-0.02em] text-foreground">
+            Hi, I&apos;m Karan.
+          </h1>
+          <p className="mb-6 mt-4 max-w-[460px] text-base leading-[1.55] text-neutral-300">
+            I turn data into decisions, and ideas into software. 3+ years building dashboards,
+            KPIs, and the software behind them.
+          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center rounded-lg border border-accent px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/[0.12] active:bg-accent/[0.22]"
             >
-              <Icon className="h-5 w-5" />
-              {label}
+              See my work
+            </a>
+            <TrackedLink
+              href="mailto:karankp20120@gmail.com"
+              event="social_click"
+              eventProps={{ platform: "email", location: "hero" }}
+              className="inline-flex items-center justify-center rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-foreground/[0.07] active:bg-foreground/[0.14]"
+            >
+              Email me
             </TrackedLink>
-          ))}
-          <TrackedLink
-            href="/Karan_Patel_Resume.pdf"
-            download
-            event="resume_download"
-            eventProps={{ location: "hero" }}
-            className="text-sm text-muted transition-colors hover:text-accent"
-          >
-            Resume
-          </TrackedLink>
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center gap-5">
+            {links.map(({ label, href, Icon, platform }) => (
+              <TrackedLink
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                event="social_click"
+                eventProps={{ platform, location: "hero" }}
+                className="flex items-center gap-2 text-sm text-accent-300 transition-colors hover:text-accent-100"
+              >
+                <Icon className="h-4 w-4" />
+                {label}
+              </TrackedLink>
+            ))}
+            <TrackedLink
+              href="/Karan_Patel_Resume.pdf"
+              download
+              event="resume_download"
+              eventProps={{ location: "hero" }}
+              className="text-sm text-accent-300 transition-colors hover:text-accent-100"
+            >
+              Resume
+            </TrackedLink>
+          </div>
         </div>
       </div>
     </section>

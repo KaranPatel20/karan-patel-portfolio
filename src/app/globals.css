@@ -1,87 +1,69 @@
 @import "tailwindcss";
 
+/* Nocturne design tokens (from the Claude Design handoff). Dark only. */
 :root {
-  --background: #f5ead8;
-  --foreground: #201e1d;
-  --muted: #645c50;
-  --surface: #ebddc5;
-  --border: color-mix(in srgb, #201e1d 16%, transparent);
-  --accent: #c67139;
-  --accent-hover: #b2622d;
-  --accent-active: #8c491a;
-  --accent-soft: #fff2eb;
-  --accent-2: #7a8a5e;
-  --accent-2-soft: #e1eecc;
+  color-scheme: dark;
+
+  --background: #161826;
+  --foreground: #e9e9ed;
+  --surface: #232532;
+  --muted: #b2b6ca;
+  --border: color-mix(in srgb, #e9e9ed 16%, transparent);
+
+  --accent: #9184d9;
+  --accent-2: #a7a1db;
+
+  --neutral-100: #f3f5fe;
+  --neutral-300: #cfd3e5;
+  --neutral-400: #b2b6ca;
+  --neutral-500: #9397ab;
+  --neutral-700: #595d6c;
+  --neutral-800: #3f424d;
+
+  --accent-100: #f5f4ff;
+  --accent-300: #d2cefd;
+  --accent-800: #423a6a;
+
+  --shadow-md: 0 0 0 1px #595d6c, 0 6px 18px rgba(0, 0, 0, 0.55);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
   --color-surface: var(--surface);
+  --color-muted: var(--muted);
   --color-border: var(--border);
   --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-active: var(--accent-active);
-  --color-accent-soft: var(--accent-soft);
   --color-accent-2: var(--accent-2);
-  --color-accent-2-soft: var(--accent-2-soft);
-  --font-sans: var(--font-figtree);
-  --font-mono: var(--font-caprasimo);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --background: #2e2b25;
-    --foreground: #f9f4ed;
-    --muted: #c0b6a5;
-    --surface: #474238;
-    --border: color-mix(in srgb, #f9f4ed 16%, transparent);
-    --accent: #f6a06b;
-    --accent-hover: #ffc6a5;
-    --accent-active: #ffe1d0;
-    --accent-soft: #402310;
-    --accent-2: #aebf92;
-    --accent-2-soft: #272e1b;
-  }
-}
-
-:root[data-theme="dark"] {
-  --background: #2e2b25;
-  --foreground: #f9f4ed;
-  --muted: #c0b6a5;
-  --surface: #474238;
-  --border: color-mix(in srgb, #f9f4ed 16%, transparent);
-  --accent: #f6a06b;
-  --accent-hover: #ffc6a5;
-  --accent-active: #ffe1d0;
-  --accent-soft: #402310;
-  --accent-2: #aebf92;
-  --accent-2-soft: #272e1b;
-}
-
-:root[data-theme="light"] {
-  --background: #f5ead8;
-  --foreground: #201e1d;
-  --muted: #645c50;
-  --surface: #ebddc5;
-  --border: color-mix(in srgb, #201e1d 16%, transparent);
-  --accent: #c67139;
-  --accent-hover: #b2622d;
-  --accent-active: #8c491a;
-  --accent-soft: #fff2eb;
-  --accent-2: #7a8a5e;
-  --accent-2-soft: #e1eecc;
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-800: var(--neutral-800);
+  --color-accent-100: var(--accent-100);
+  --color-accent-300: var(--accent-300);
+  --color-accent-800: var(--accent-800);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-inter);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: radial-gradient(120% 60% at 0% 0%, var(--neutral-800), var(--background) 60%);
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
   color: var(--foreground);
+  font-size: 15px;
+  line-height: 1.55;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-caprasimo);
-  font-weight: 400;
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 ::selection {
@@ -91,4 +73,32 @@ h1, h2, h3, h4 {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Freestanding rules fade to transparent at both ends (a Nocturne signature). */
+.rule-top {
+  position: relative;
+}
+.rule-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border) 48px,
+    var(--border) calc(100% - 48px),
+    transparent
+  );
+}
+
+/* Elevation on hover: hairline edge plus ambient darkness. */
+.elev-hover {
+  transition: box-shadow 150ms ease;
+}
+.elev-hover:hover {
+  box-shadow: var(--shadow-md);
 }

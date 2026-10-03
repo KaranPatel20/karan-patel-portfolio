@@ -41,18 +41,18 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="border-t border-border">
+    <section id="certifications" className="rule-top">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Certifications</h2>
+        <h2 className="text-xs font-medium uppercase tracking-[0.1em] text-accent">Certifications</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {certifications.map((cert) => (
             <div
               key={cert.name}
-              className="group relative flex h-full flex-col justify-between rounded-[32px] border border-border bg-surface p-5 transition-all hover:border-accent hover:shadow-md"
+              className="group relative flex h-full flex-col justify-between rounded-lg bg-surface p-5 elev-hover"
             >
               <FaArrowUpRightFromSquare className="absolute right-5 top-5 h-4 w-4 text-accent opacity-0 transition-opacity group-hover:opacity-100" />
               <div className="pr-6">
-                <p className="font-mono text-base text-foreground">{cert.name}</p>
+                <p className="font-medium text-base text-foreground">{cert.name}</p>
                 <p className="mt-1 text-xs text-muted">{cert.issuer}</p>
                 <p className="text-xs text-muted">{cert.date}</p>
               </div>
@@ -60,7 +60,7 @@ export default function Certifications() {
                 href={cert.href}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-4 inline-block w-fit rounded-full border border-border px-4 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+                className="mt-4 inline-block w-fit rounded-lg border border-border px-3.5 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-foreground/[0.07] active:bg-foreground/[0.14]"
               >
                 Show Credentials
               </a>

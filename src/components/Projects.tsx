@@ -80,9 +80,9 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="border-t border-border">
+    <section id="projects" className="rule-top">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Projects</h2>
+        <h2 className="text-xs font-medium uppercase tracking-[0.1em] text-accent">Projects</h2>
         <p className="mt-1 hidden text-xs text-muted sm:block">Hover a card for details.</p>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => {
@@ -99,28 +99,28 @@ export default function Projects() {
             return (
               <div
                 key={project.name}
-                className="group rounded-[32px] border border-border bg-surface p-4 transition-shadow hover:shadow-md"
+                className="group rounded-lg bg-surface p-4 elev-hover"
               >
                 <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-800 text-accent-100">
                     <project.Icon className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="text-sm font-semibold leading-snug text-foreground">
+                      <h3 className="text-[17px] font-medium leading-tight text-foreground">
                         {project.name}
                       </h3>
                       <span
-                        className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-medium ${
+                        className={`shrink-0 rounded-md px-2.5 py-[3px] text-[11px] tracking-[0.02em] ${
                           project.tag === "Data & BI"
-                            ? "bg-accent-2-soft text-accent-2"
-                            : "border border-border text-muted"
+                            ? "bg-accent-800 text-accent-100"
+                            : "bg-neutral-800 text-neutral-100"
                         }`}
                       >
                         {project.tag}
                       </span>
                     </div>
-                    <p className="mt-1 font-mono text-xs text-muted">{project.stack}</p>
+                    <p className="mt-1 font-medium text-xs text-muted">{project.stack}</p>
                     <p className="text-xs text-muted">{project.period}</p>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export default function Projects() {
                         href={link.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs font-medium text-accent hover:underline"
+                        className="text-xs font-medium text-accent-300 transition-colors hover:text-accent-100"
                       >
                         {link.label}
                       </a>

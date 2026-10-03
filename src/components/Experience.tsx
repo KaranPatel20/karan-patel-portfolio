@@ -71,7 +71,7 @@ function ExperienceCard({ role }: { role: Role }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="rounded-[32px] border border-border bg-surface">
+    <div className="rounded-lg bg-surface">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -88,7 +88,7 @@ function ExperienceCard({ role }: { role: Role }) {
           />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="truncate font-mono text-base text-foreground">{role.title}</p>
+          <p className="truncate font-medium text-base text-foreground">{role.title}</p>
           <p className="truncate text-sm text-muted">{role.company}</p>
           <p className="mt-0.5 text-xs text-muted">{role.period}</p>
         </div>
@@ -117,9 +117,9 @@ function ExperienceCard({ role }: { role: Role }) {
 
 export default function Experience() {
   return (
-    <section id="experience" className="border-t border-border bg-surface/40">
+    <section id="experience" className="rule-top">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Experience</h2>
+        <h2 className="text-xs font-medium uppercase tracking-[0.1em] text-accent">Experience</h2>
         <div className="mt-6 space-y-4">
           {roles.map((role) => (
             <ExperienceCard key={`${role.company}-${role.title}`} role={role} />
