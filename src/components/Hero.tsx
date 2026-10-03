@@ -24,7 +24,7 @@ export default function Hero() {
         className="pointer-events-none absolute -right-[120px] -top-20 h-[360px] w-[360px] rounded-full bg-accent-2-soft"
       />
 
-      <div className="relative mx-auto max-w-[640px] px-8 pb-8 pt-16 sm:px-12 sm:pt-24 lg:px-16">
+      <div className="relative mx-auto max-w-7xl px-8 pb-8 pt-16 sm:px-12 sm:pt-24 lg:px-16">
         <span className="inline-flex items-center rounded-full bg-accent-2-soft px-2.5 py-1 text-[11px] tracking-wide text-accent-2">
           Data Analyst / Software Developer
         </span>

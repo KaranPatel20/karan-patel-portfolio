@@ -106,7 +106,7 @@ export default function Skills() {
           <SkillColumn
             title={secondary.title}
             items={secondary.items}
-            className="sm:col-span-2 lg:col-span-3"
+            className="sm:col-span-2 lg:col-span-1"
           />
         </div>
       </div>
