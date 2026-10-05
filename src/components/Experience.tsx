@@ -1,5 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import FaqAccordion from "@/components/ui/faq-accordion";
+import { FaChevronDown } from "react-icons/fa6";
 
 type Role = {
   title: string;
@@ -15,7 +18,7 @@ const roles: Role[] = [
     title: "Technical Lead (Volunteer)",
     company: "Voluntary Nature Conservancy",
     logo: "/logos/vnc_logo.png",
-    note: "",
+    note: "Includes concurrent Data Analyst Intern scope, Jan 2026 – Present",
     period: "Jan 2022 – Present",
     bullets: [
       "Gathered requirements from non-technical program managers and built 24+ operational dashboards and 35 ad-hoc reports in Power BI and Excel to track KPIs, throughput, and data quality rates.",
@@ -64,54 +67,64 @@ const roles: Role[] = [
   },
 ];
 
-function roleHeader(role: Role) {
+function ExperienceCard({ role }: { role: Role }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="flex items-center gap-4">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
-        <Image
-          src={role.logo}
-          alt={`${role.company} logo`}
-          width={40}
-          height={40}
-          className="h-full w-full object-contain"
+    <div className="rounded-lg border border-border bg-surface">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-center gap-4 p-4 text-left"
+      >
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
+          <Image
+            src={role.logo}
+            alt={`${role.company} logo`}
+            width={40}
+            height={40}
+            className="h-full w-full object-contain"
+          />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-semibold text-foreground">{role.title}</p>
+          <p className="truncate text-sm text-muted">{role.company}</p>
+          <p className="mt-0.5 text-xs text-muted">{role.period}</p>
+        </div>
+        <FaChevronDown
+          className={`h-4 w-4 shrink-0 text-muted transition-transform ${open ? "rotate-180" : ""}`}
         />
-      </div>
-      <div className="min-w-0">
-        <p className="truncate font-mono text-base text-foreground">{role.title}</p>
-        <p className="truncate text-sm text-muted">{role.company}</p>
-        <p className="mt-0.5 text-xs text-muted">{role.period}</p>
-      </div>
+      </button>
+
+      {open && (
+        <div className="border-t border-border px-4 pb-5 pt-4 sm:pl-[4.5rem]">
+          {role.note && (
+            <p className="mb-3 text-xs italic text-muted">{role.note}</p>
+          )}
+          <ul className="list-disc space-y-2 pl-5 marker:text-accent">
+            {role.bullets.map((bullet, j) => (
+              <li key={j} className="text-justify text-sm leading-relaxed text-muted">
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
 
-function roleContent(role: Role) {
-  return (
-    <>
-      {role.note && <p className="mb-3 text-xs italic text-muted">{role.note}</p>}
-      <ul className="list-disc space-y-2 pl-5 marker:text-accent">
-        {role.bullets.map((bullet, j) => (
-          <li key={j} className="text-justify text-sm leading-relaxed text-muted">
-            {bullet}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-}
-
 export default function Experience() {
-  const items = roles.map((role) => ({
-    id: `${role.company}-${role.title}`,
-    header: roleHeader(role),
-    content: roleContent(role),
-  }));
-
   return (
     <section id="experience" className="border-t border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Experience</h2>
-        <FaqAccordion items={items} className="mt-6" />
+        <h2 className="font-mono text-sm text-accent">Experience</h2>
+        <div className="mt-6 space-y-4">
+          {roles.map((role) => (
+            <ExperienceCard key={`${role.company}-${role.title}`} role={role} />
+          ))}
+        </div>
       </div>
     </section>
   );

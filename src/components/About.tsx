@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section id="about" className="border-t border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">About</h2>
+        <h2 className="font-mono text-sm text-accent">About</h2>
         <div className="mt-8 grid gap-8">
           <p className="text-justify text-base leading-relaxed text-muted">
             I sit between the people who need answers and the data that has them. A couple of
