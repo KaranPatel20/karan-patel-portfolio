@@ -1,5 +1,11 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import TrackedLink from "@/components/TrackedLink";
+import HeroRotator from "@/components/HeroRotator";
+import HeroTitle from "@/components/HeroTitle";
+import MagneticButton from "@/components/MagneticButton";
+import HeroDashboard from "@/components/HeroDashboard";
+import HeroStats from "@/components/HeroStats";
+import { HeroFade, HeroParallax } from "@/components/HeroScroll";
 
 const links = [
   {
@@ -19,40 +25,49 @@ const links = [
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-[120px] -top-20 h-[360px] w-[360px] rounded-full bg-accent-2-soft"
-      />
+      <div className="absolute -right-[120px] -top-20">
+        <HeroParallax speed={0.18} className="hero-drift h-[360px] w-[360px] rounded-full bg-accent-2-soft" />
+      </div>
+      <div className="absolute -bottom-24 right-[18%]">
+        <HeroParallax speed={-0.1} className="hero-drift-alt h-[220px] w-[220px] rounded-full bg-accent-soft" />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-8 pb-8 pt-16 sm:px-12 sm:pt-24 lg:px-16">
-        <span className="inline-flex items-center rounded-full bg-accent-2-soft px-2.5 py-1 text-[11px] tracking-wide text-accent-2">
+      <HeroFade>
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_380px]">
+        <div>
+        <span style={{ "--i": 0 } as React.CSSProperties} className="hero-rise inline-flex items-center rounded-full bg-accent-2-soft px-2.5 py-1 text-[11px] tracking-wide text-accent-2">
           Data Analyst / Software Developer
         </span>
-        <h1 className="text-balance mt-4 font-mono text-[clamp(2.75rem,7vw,4.75rem)] font-normal leading-none tracking-[-0.015em] text-foreground">
-          Hi, I&apos;m Karan.
-        </h1>
-        <p className="mb-6 mt-4 max-w-[480px] text-lg leading-[1.55] text-foreground/90">
+        <HeroTitle text="Hi, I'm Karan." />
+        <p style={{ "--i": 2 } as React.CSSProperties} className="hero-rise mb-4 mt-4 max-w-[480px] text-lg leading-[1.55] text-foreground/90">
           I turn data into decisions, and ideas into software. 3+ years building dashboards,
           KPIs, and the software behind them.
         </p>
-        <div className="flex flex-wrap items-center gap-3">
+        <div style={{ "--i": 3 } as React.CSSProperties} className="hero-rise mb-6">
+          <HeroRotator />
+        </div>
+        <div style={{ "--i": 4 } as React.CSSProperties} className="hero-rise flex flex-wrap items-center gap-3">
+          <MagneticButton>
           <a
             href="#projects"
-            className="inline-flex items-center justify-center rounded-full bg-accent px-4 py-2.5 font-mono text-sm text-background transition-colors hover:bg-accent-hover active:bg-accent-active"
+            className="inline-flex items-center justify-center rounded-full bg-accent px-4 py-2.5 font-mono text-sm text-background transition-all hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0 active:bg-accent-active"
           >
             See my work
           </a>
+          </MagneticButton>
+          <MagneticButton>
           <TrackedLink
             href="mailto:karankp20120@gmail.com"
             event="social_click"
             eventProps={{ platform: "email", location: "hero" }}
-            className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2.5 font-mono text-sm text-foreground transition-colors hover:bg-foreground/5 active:bg-foreground/10"
+            className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2.5 font-mono text-sm text-foreground transition-all hover:-translate-y-0.5 hover:bg-foreground/5 active:translate-y-0 active:bg-foreground/10"
           >
             Email me
           </TrackedLink>
+          </MagneticButton>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center gap-5">
+        <div style={{ "--i": 5 } as React.CSSProperties} className="hero-rise mt-6 flex flex-wrap items-center gap-5">
           {links.map(({ label, href, Icon, platform }) => (
             <TrackedLink
               key={label}
@@ -78,7 +93,13 @@ export default function Hero() {
             Resume
           </TrackedLink>
         </div>
-      </div>
+        <div style={{ "--i": 6 } as React.CSSProperties} className="hero-rise">
+          <HeroStats />
+        </div>
+        </div>
+        <HeroDashboard />
+        </div>
+      </HeroFade>
     </section>
   );
 }

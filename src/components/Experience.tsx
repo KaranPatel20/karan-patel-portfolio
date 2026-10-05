@@ -15,7 +15,7 @@ const roles: Role[] = [
     title: "Technical Lead (Volunteer)",
     company: "Voluntary Nature Conservancy",
     logo: "/logos/vnc_logo.png",
-    note: "Includes concurrent Data Analyst Intern scope, Jan 2026 – Present",
+    note: "",
     period: "Jan 2022 – Present",
     bullets: [
       "Gathered requirements from non-technical program managers and built 24+ operational dashboards and 35 ad-hoc reports in Power BI and Excel to track KPIs, throughput, and data quality rates.",

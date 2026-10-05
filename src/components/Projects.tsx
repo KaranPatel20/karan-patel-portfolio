@@ -2,6 +2,25 @@ import ProjectsBento, { type ProjectData } from "@/components/ProjectsBento";
 
 const projects: ProjectData[] = [
   {
+    name: "Living Flood Map",
+    tag: "Data & BI",
+    stack: "Python, sentence-transformers, Gemini API, Streamlit, Docker, OpenStreetMap",
+    period: "Sept 2026 – Present",
+    icon: "map",
+    points: [
+      "My teammate and I built this for a hackathon run by CE Strategies, a GIS company that works with First Nations communities on flood response.",
+      "A free local model labels every tweet, and Gemini only reviews the ones it's unsure about, which kept us inside a tight API quota. It tells flood reports apart from noise like Stanley Cup chatter, then plots the places they mention.",
+      "On 17,632 held-out tweets it reached F1 0.91, up from 0.65 for the local model alone."
+    ],
+    links: [
+      { label: "Live Demo", href: "https://living-flood-map.streamlit.app/" },
+      {
+        label: "Github",
+        href: "https://github.com/KaranPatel20/Hackathon",
+      },
+    ],
+  },
+  {
     name: "CrocWatch Data Submission Analytics",
     tag: "Data & BI",
     stack: "Power BI, Excel, SQL, Flutter, Firebase",

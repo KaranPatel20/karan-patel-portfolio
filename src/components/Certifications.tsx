@@ -2,9 +2,15 @@ import CertificationsCarousel from "@/components/CertificationsCarousel";
 
 const certifications = [
   {
-    name: "Preparing Data for Analysis with Microsoft Excel",
+    name: "Harnessing the Power of Data with Power BI",
     issuer: "Coursera (Microsoft)",
     date: "Sep 2026",
+    href: "https://coursera.org/share/9f281f04c9370fff7f8c7a9813dc07eb",
+  },
+  {
+    name: "Preparing Data for Analysis with Microsoft Excel",
+    issuer: "Coursera (Microsoft)",
+    date: "Aug 2026",
     href: "https://coursera.org/share/7c69c7b1ebfc1c70378d241bd332a7d1",
   },
   {
