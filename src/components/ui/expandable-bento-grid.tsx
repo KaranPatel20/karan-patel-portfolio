@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaXmark } from "react-icons/fa6";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 // Adapted from Vengeance UI's ExpandableBentoGrid: real links in the footer
 // instead of a hardcoded "Visit" button, Organic tokens instead of the blue theme.
@@ -116,6 +117,7 @@ export default function ExpandableBentoGrid({
                     <a
                       key={link.label}
                       href={link.href}
+                      onClick={() => trackEvent("project_link_click", { project: active.title, link: link.label, location: "projects" })}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center rounded-full bg-accent px-4 py-1.5 text-xs font-medium text-on-accent press hover:bg-accent-hover"
@@ -138,7 +140,10 @@ export default function ExpandableBentoGrid({
             role="button"
             tabIndex={0}
             aria-label={`Open ${item.title}`}
-            onClick={() => setActive(item)}
+            onClick={() => {
+              trackEvent("project_open", { project: item.title });
+              setActive(item);
+            }}
             onKeyDown={(event) => {
               if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { flagsInitScript } from "@/lib/analytics";
 import "./globals.css";
 
 // Fallback for platforms without SF Pro; the stack in globals.css prefers the system font.
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: flagsInitScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
         {children}

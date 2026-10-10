@@ -1,6 +1,6 @@
 "use client";
 
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/lib/analytics";
 import { FaEnvelope, FaLinkedin, FaGithub, FaMedium } from "react-icons/fa6";
 import { MaskedAvatars, type MaskedAvatar } from "@/components/ui/masked-avatars";
 
@@ -14,7 +14,7 @@ const socials = [
 export default function ContactSocials() {
   const avatars: MaskedAvatar[] = socials.map(({ platform, ...item }) => ({
     ...item,
-    onClick: () => track("social_click", { platform, location: "contact" }),
+    onClick: () => trackEvent("social_click", { platform, location: "contact" }),
   }));
 
   return (

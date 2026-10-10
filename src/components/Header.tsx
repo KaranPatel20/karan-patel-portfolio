@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/lib/analytics";
 import { FaBars, FaXmark } from "react-icons/fa6";
 
 const links = [
@@ -31,6 +31,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
+              onClick={() => trackEvent("nav_click", { section: link.label.toLowerCase(), location: "header" })}
               className="transition-colors hover:text-foreground"
             >
               {link.label}
@@ -40,7 +41,7 @@ export default function Header() {
         <a
           href="/Karan_Patel_Resume.pdf"
           download
-          onClick={() => track("resume_download", { location: "header" })}
+          onClick={() => trackEvent("resume_download", { location: "header" })}
           className="press hidden rounded-full bg-accent px-4 py-1.5 text-[13px] font-medium text-on-accent hover:bg-accent-hover lg:block"
         >
           Resume
@@ -70,7 +71,10 @@ export default function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    trackEvent("nav_click", { section: link.label.toLowerCase(), location: "mobile-menu" });
+                    setOpen(false);
+                  }}
                   className="border-b border-border/50 py-3 text-lg font-medium tracking-tight text-foreground last:border-0"
                 >
                   {link.label}

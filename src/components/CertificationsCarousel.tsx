@@ -1,6 +1,7 @@
 "use client";
 
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { trackEvent } from "@/lib/analytics";
 import PerspectiveCarousel from "@/components/ui/perspective-carousel";
 
 export type CertificationData = {
@@ -24,6 +25,7 @@ export default function CertificationsCarousel({ certifications }: { certificati
     details: (
       <a
         href={cert.href}
+        onClick={() => trackEvent("credential_click", { certification: cert.name })}
         target="_blank"
         rel="noreferrer"
         className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-medium text-on-accent press hover:bg-accent-hover"

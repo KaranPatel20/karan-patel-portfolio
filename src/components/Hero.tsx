@@ -52,12 +52,14 @@ export default function Hero() {
           style={rise(6)}
           className="hero-rise mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
         >
-          <a
+          <TrackedLink
             href="#projects"
+            event="cta_click"
+            eventProps={{ cta: "see-my-work", location: "hero" }}
             className="press inline-flex items-center justify-center rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-on-accent hover:bg-accent-hover"
           >
             See my work
-          </a>
+          </TrackedLink>
           <TrackedLink
             href="mailto:karankp20120@gmail.com"
             event="social_click"

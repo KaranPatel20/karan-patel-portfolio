@@ -1,6 +1,6 @@
 "use client";
 
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/lib/analytics";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 type TrackedLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -20,7 +20,7 @@ export default function TrackedLink({
     <a
       {...anchorProps}
       onClick={(e) => {
-        track(event, eventProps);
+        trackEvent(event, eventProps);
         onClick?.(e);
       }}
     >
