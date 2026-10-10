@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Section from "@/components/Section";
 import FaqAccordion from "@/components/ui/faq-accordion";
 
 type Role = {
@@ -67,7 +68,7 @@ const roles: Role[] = [
 function roleHeader(role: Role) {
   return (
     <div className="flex items-center gap-4">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white p-1.5 shadow-sm ring-1 ring-black/10">
         <Image
           src={role.logo}
           alt={`${role.company} logo`}
@@ -77,7 +78,7 @@ function roleHeader(role: Role) {
         />
       </div>
       <div className="min-w-0">
-        <p className="truncate font-mono text-base text-foreground">{role.title}</p>
+        <p className="truncate text-base font-semibold tracking-tight text-foreground">{role.title}</p>
         <p className="truncate text-sm text-muted">{role.company}</p>
         <p className="mt-0.5 text-xs text-muted">{role.period}</p>
       </div>
@@ -91,7 +92,7 @@ function roleContent(role: Role) {
       {role.note && <p className="mb-3 text-xs italic text-muted">{role.note}</p>}
       <ul className="list-disc space-y-2 pl-5 marker:text-accent">
         {role.bullets.map((bullet, j) => (
-          <li key={j} className="text-justify text-sm leading-relaxed text-muted">
+          <li key={j} className="text-justify text-sm leading-relaxed text-muted hyphens-auto">
             {bullet}
           </li>
         ))}
@@ -108,11 +109,8 @@ export default function Experience() {
   }));
 
   return (
-    <section id="experience" className="border-t border-border bg-surface/40">
-      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Experience</h2>
-        <FaqAccordion items={items} className="mt-6" />
-      </div>
-    </section>
+    <Section id="experience" title="Experience" alt>
+      <FaqAccordion items={items} />
+    </Section>
   );
 }

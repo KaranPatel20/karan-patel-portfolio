@@ -28,13 +28,13 @@ export function FaqAccordion({
         return (
           <li
             key={item.id}
-            className="overflow-hidden rounded-[32px] border border-border bg-surface"
+            className="overflow-hidden rounded-[28px] border border-border bg-surface shadow-card"
           >
             <button
               type="button"
               onClick={() => setActiveId(isActive ? null : item.id)}
               aria-expanded={isActive}
-              className="flex w-full items-center gap-4 p-4 text-left"
+              className="flex w-full items-center gap-4 p-5 text-left press"
             >
               <div className="min-w-0 flex-1">{item.header}</div>
               <FaChevronDown
@@ -51,7 +51,7 @@ export function FaqAccordion({
               )}
             >
               <div className="overflow-hidden">
-                <div className="border-t border-border px-4 pb-5 pt-4 sm:pl-[4.5rem]">
+                <div className="border-t border-border px-5 pb-6 pt-5 sm:pl-[5.5rem]">
                   {item.content}
                 </div>
               </div>

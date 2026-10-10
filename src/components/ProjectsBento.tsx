@@ -34,7 +34,7 @@ export default function ProjectsBento({ projects }: { projects: ProjectData[] })
       content: (
         <ul className="list-disc space-y-2 pl-5 marker:text-accent">
           {project.points.map((point, j) => (
-            <li key={j} className="text-sm leading-relaxed text-muted">
+            <li key={j} className="text-justify text-sm leading-relaxed text-muted hyphens-auto">
               {point}
             </li>
           ))}
@@ -44,5 +44,5 @@ export default function ProjectsBento({ projects }: { projects: ProjectData[] })
     };
   });
 
-  return <ExpandableBentoGrid items={items} className="mt-6" />;
+  return <ExpandableBentoGrid items={items} />;
 }

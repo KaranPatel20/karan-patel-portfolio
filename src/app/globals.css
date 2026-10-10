@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
+/* Apple-style structure with the warm Organic palette. Light is the default; dark follows the system or the toggle. */
 :root {
-  --background: #f5ead8;
+  --background: #f8efdf;
   --foreground: #201e1d;
   --muted: #645c50;
-  --surface: #ebddc5;
-  --border: color-mix(in srgb, #201e1d 16%, transparent);
-  --accent: #c67139;
-  --accent-hover: #b2622d;
+  --surface: #fffaf1;
+  --surface-2: #f0e4cf;
+  --border: rgba(32, 30, 29, 0.14);
+  --accent: #b5602b;
+  --accent-hover: #a05424;
   --accent-active: #8c491a;
-  --accent-soft: #fff2eb;
-  --accent-2: #7a8a5e;
-  --accent-2-soft: #e1eecc;
+  --accent-soft: #fbe6d6;
+  --accent-2: #5f7048;
+  --accent-2-soft: #e4ecd2;
+  --on-accent: #ffffff;
+  --glass: rgba(248, 239, 223, 0.72);
+  --shadow-card: 0 1px 2px rgba(64, 40, 16, 0.05), 0 8px 28px rgba(64, 40, 16, 0.07);
 }
 
 @theme inline {
@@ -19,6 +24,7 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
@@ -26,74 +32,174 @@
   --color-accent-soft: var(--accent-soft);
   --color-accent-2: var(--accent-2);
   --color-accent-2-soft: var(--accent-2-soft);
-  --font-sans: var(--font-figtree);
-  --font-mono: var(--font-caprasimo);
+  --color-on-accent: var(--on-accent);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", var(--font-inter), system-ui, sans-serif;
+  --font-mono: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", var(--font-inter), system-ui, sans-serif;
+  --shadow-card: var(--shadow-card);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --background: #2e2b25;
+    --background: #1f1c18;
     --foreground: #f9f4ed;
     --muted: #c0b6a5;
-    --surface: #474238;
-    --border: color-mix(in srgb, #f9f4ed 16%, transparent);
+    --surface: #2c2823;
+    --surface-2: #25221d;
+    --border: rgba(249, 244, 237, 0.15);
     --accent: #f6a06b;
-    --accent-hover: #ffc6a5;
-    --accent-active: #ffe1d0;
+    --accent-hover: #ffb383;
+    --accent-active: #ffc6a5;
     --accent-soft: #402310;
     --accent-2: #aebf92;
     --accent-2-soft: #272e1b;
+    --on-accent: #1f1c18;
+    --glass: rgba(31, 28, 24, 0.72);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 28px rgba(0, 0, 0, 0.35);
   }
 }
 
 :root[data-theme="dark"] {
-  --background: #2e2b25;
+  --background: #1f1c18;
   --foreground: #f9f4ed;
   --muted: #c0b6a5;
-  --surface: #474238;
-  --border: color-mix(in srgb, #f9f4ed 16%, transparent);
+  --surface: #2c2823;
+  --surface-2: #25221d;
+  --border: rgba(249, 244, 237, 0.15);
   --accent: #f6a06b;
-  --accent-hover: #ffc6a5;
-  --accent-active: #ffe1d0;
+  --accent-hover: #ffb383;
+  --accent-active: #ffc6a5;
   --accent-soft: #402310;
   --accent-2: #aebf92;
   --accent-2-soft: #272e1b;
+  --on-accent: #1f1c18;
+  --glass: rgba(31, 28, 24, 0.72);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 28px rgba(0, 0, 0, 0.35);
 }
 
 :root[data-theme="light"] {
-  --background: #f5ead8;
+  --background: #f8efdf;
   --foreground: #201e1d;
   --muted: #645c50;
-  --surface: #ebddc5;
-  --border: color-mix(in srgb, #201e1d 16%, transparent);
-  --accent: #c67139;
-  --accent-hover: #b2622d;
+  --surface: #fffaf1;
+  --surface-2: #f0e4cf;
+  --border: rgba(32, 30, 29, 0.14);
+  --accent: #b5602b;
+  --accent-hover: #a05424;
   --accent-active: #8c491a;
-  --accent-soft: #fff2eb;
-  --accent-2: #7a8a5e;
-  --accent-2-soft: #e1eecc;
+  --accent-soft: #fbe6d6;
+  --accent-2: #5f7048;
+  --accent-2-soft: #e4ecd2;
+  --on-accent: #ffffff;
+  --glass: rgba(248, 239, 223, 0.72);
+  --shadow-card: 0 1px 2px rgba(64, 40, 16, 0.05), 0 8px 28px rgba(64, 40, 16, 0.07);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-caprasimo);
-  font-weight: 400;
+/* Size-specific tracking and leading: tighter as type grows. */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+h1 {
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+h2 {
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+}
+h3 {
+  letter-spacing: -0.012em;
+  line-height: 1.25;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
 }
 
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-/* Hero motion: gentle entrance, drifting background shapes */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Feedback lives on the press, and it is instant. */
+.press {
+  transition:
+    transform 120ms ease-out,
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
+.press:active {
+  transform: scale(0.96);
+}
+
+/* Translucent material: content scrolls underneath. */
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: var(--background);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --border: rgba(32, 30, 29, 0.5);
+    --muted: #3b352c;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .press:active {
+    transform: none;
+  }
+}
+
+/* Hero motion: words materialize, content rises; chart draws in */
+@keyframes hero-materialize {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+
 @keyframes hero-rise {
   from {
     opacity: 0;
@@ -105,24 +211,10 @@ h1, h2, h3, h4 {
   }
 }
 
-@keyframes hero-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(-24px, 20px, 0) scale(1.06);
-  }
-}
-
-@keyframes hero-drift-alt {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(28px, -18px, 0);
-  }
+.hero-materialize {
+  opacity: 0;
+  animation: hero-materialize 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 120ms);
 }
 
 .hero-rise {
@@ -131,21 +223,11 @@ h1, h2, h3, h4 {
   animation-delay: calc(var(--i, 0) * 110ms);
 }
 
-.hero-drift {
-  animation: hero-drift 14s ease-in-out infinite;
-}
-
-.hero-drift-alt {
-  animation: hero-drift-alt 18s ease-in-out infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-rise {
+  .hero-rise,
+  .hero-materialize {
     opacity: 1;
-    animation: none;
-  }
-  .hero-drift,
-  .hero-drift-alt {
+    filter: none;
     animation: none;
   }
 }

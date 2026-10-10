@@ -1,3 +1,4 @@
+import Section from "@/components/Section";
 const primary = [
   {
     title: "Requirements & Analysis",
@@ -77,14 +78,14 @@ function SkillColumn({
 }) {
   return (
     <div
-      className={`rounded-[32px] border border-border bg-surface p-5 transition-shadow hover:shadow-md ${className}`}
+      className={`rounded-[28px] border border-border bg-surface p-6 shadow-card transition-transform duration-300 hover:-translate-y-0.5 ${className}`}
     >
-      <h3 className="text-base font-semibold text-foreground">{title}</h3>
+      <h3 className="text-base text-foreground">{title}</h3>
       <div className="mt-4 flex flex-wrap gap-2">
         {items.map((item) => (
           <div
             key={item}
-            className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-accent"
+            className="rounded-full bg-surface-2 px-3 py-1 text-xs text-foreground transition-colors hover:bg-accent-soft hover:text-accent"
           >
             {item}
           </div>
@@ -96,20 +97,17 @@ function SkillColumn({
 
 export default function Skills() {
   return (
-    <section id="skills" className="border-t border-border">
-      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Skills, Tools &amp; Technologies</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {primary.map((group) => (
-            <SkillColumn key={group.title} title={group.title} items={group.items} />
-          ))}
-          <SkillColumn
-            title={secondary.title}
-            items={secondary.items}
-            className="sm:col-span-2 lg:col-span-1"
-          />
-        </div>
+    <Section id="skills" title="Skills, tools and technologies">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {primary.map((group) => (
+          <SkillColumn key={group.title} title={group.title} items={group.items} />
+        ))}
+        <SkillColumn
+          title={secondary.title}
+          items={secondary.items}
+          className="sm:col-span-2 lg:col-span-1"
+        />
       </div>
-    </section>
+    </Section>
   );
 }

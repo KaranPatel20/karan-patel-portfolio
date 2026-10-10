@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { Figtree, Caprasimo } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const figtree = Figtree({
-  variable: "--font-figtree",
+// Fallback for platforms without SF Pro; the stack in globals.css prefers the system font.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const caprasimo = Caprasimo({
-  variable: "--font-caprasimo",
-  subsets: ["latin"],
-  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${figtree.variable} ${caprasimo.variable} h-full antialiased`}
+      className={`${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

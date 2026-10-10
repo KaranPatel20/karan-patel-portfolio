@@ -1,3 +1,4 @@
+import Section from "@/components/Section";
 import CertificationsCarousel from "@/components/CertificationsCarousel";
 
 const certifications = [
@@ -47,12 +48,8 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="border-t border-border">
-      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Certifications</h2>
-        <p className="mt-3 text-xs text-muted">Swipe, use the arrows, or click a side card.</p>
-        <CertificationsCarousel certifications={certifications} />
-      </div>
-    </section>
+    <Section id="certifications" title="Certifications" hint="Swipe, use the arrows, or click a side card.">
+      <CertificationsCarousel certifications={certifications} />
+    </Section>
   );
 }

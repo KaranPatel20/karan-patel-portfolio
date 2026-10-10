@@ -38,16 +38,13 @@ function CountUp({ to, suffix }: { to: number; suffix: string }) {
 
 export default function HeroStats() {
   return (
-    <dl className="mt-8 flex flex-wrap gap-3">
+    <dl className="mx-auto mt-10 grid max-w-2xl grid-cols-3 gap-4 sm:gap-8">
       {stats.map((stat) => (
-        <div
-          key={stat.label}
-          className="flex items-baseline gap-2 rounded-full border border-border bg-surface px-4 py-2"
-        >
-          <dt className="font-mono text-lg text-accent">
+        <div key={stat.label} className="text-center">
+          <dt className="text-3xl font-semibold tracking-tight text-foreground">
             <CountUp to={stat.value} suffix={stat.suffix} />
           </dt>
-          <dd className="text-xs text-muted">{stat.label}</dd>
+          <dd className="mt-1 text-xs text-muted">{stat.label}</dd>
         </div>
       ))}
     </dl>

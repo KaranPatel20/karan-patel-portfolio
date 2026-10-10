@@ -1,3 +1,4 @@
+import Section from "@/components/Section";
 import ProjectsBento, { type ProjectData } from "@/components/ProjectsBento";
 
 const projects: ProjectData[] = [
@@ -88,12 +89,8 @@ const projects: ProjectData[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="border-t border-border">
-      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="inline-flex items-center rounded-full bg-accent-soft px-3 py-1 font-mono text-sm text-accent">Projects</h2>
-        <p className="mt-1 text-xs text-muted">Click a card for details.</p>
-        <ProjectsBento projects={projects} />
-      </div>
-    </section>
+    <Section id="projects" title="Projects" hint="Click a card for details.">
+      <ProjectsBento projects={projects} />
+    </Section>
   );
 }

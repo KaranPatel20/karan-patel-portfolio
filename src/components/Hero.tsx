@@ -2,10 +2,8 @@ import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import TrackedLink from "@/components/TrackedLink";
 import HeroRotator from "@/components/HeroRotator";
 import HeroTitle from "@/components/HeroTitle";
-import MagneticButton from "@/components/MagneticButton";
-import HeroDashboard from "@/components/HeroDashboard";
+import HeroResult from "@/components/HeroResult";
 import HeroStats from "@/components/HeroStats";
-import { HeroFade, HeroParallax } from "@/components/HeroScroll";
 
 const links = [
   {
@@ -22,52 +20,58 @@ const links = [
   },
 ];
 
+const rise = (i: number) => ({ "--i": i }) as React.CSSProperties;
+
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="absolute -right-[120px] -top-20">
-        <HeroParallax speed={0.18} className="hero-drift h-[360px] w-[360px] rounded-full bg-accent-2-soft" />
-      </div>
-      <div className="absolute -bottom-24 right-[18%]">
-        <HeroParallax speed={-0.1} className="hero-drift-alt h-[220px] w-[220px] rounded-full bg-accent-soft" />
-      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,var(--accent-soft),transparent)]"
+      />
 
-      <HeroFade>
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_380px]">
-        <div>
-        <span style={{ "--i": 0 } as React.CSSProperties} className="hero-rise inline-flex items-center rounded-full bg-accent-2-soft px-2.5 py-1 text-[11px] tracking-wide text-accent-2">
+      <div className="relative mx-auto max-w-7xl px-6 pb-14 pt-14 text-center sm:px-12 sm:pb-16 sm:pt-20 lg:px-16">
+        <p style={rise(0)} className="hero-rise text-sm font-semibold text-accent">
           Data Analyst / Software Developer
-        </span>
-        <HeroTitle text="Hi, I'm Karan." />
-        <p style={{ "--i": 2 } as React.CSSProperties} className="hero-rise mb-4 mt-4 max-w-[480px] text-lg leading-[1.55] text-foreground/90">
+        </p>
+        <div className="mt-3">
+          <HeroTitle text="Hi, I'm Karan." />
+        </div>
+        <p
+          style={rise(4)}
+          className="hero-rise mx-auto mt-4 max-w-xl text-lg leading-[1.55] text-foreground/85"
+        >
           I turn data into decisions, and ideas into software. 3+ years building dashboards,
           KPIs, and the software behind them.
         </p>
-        <div style={{ "--i": 3 } as React.CSSProperties} className="hero-rise mb-6">
+        <div style={rise(5)} className="hero-rise mt-5">
           <HeroRotator />
         </div>
-        <div style={{ "--i": 4 } as React.CSSProperties} className="hero-rise flex flex-wrap items-center gap-3">
-          <MagneticButton>
+
+        <div
+          style={rise(6)}
+          className="hero-rise mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
+        >
           <a
             href="#projects"
-            className="inline-flex items-center justify-center rounded-full bg-accent px-4 py-2.5 font-mono text-sm text-background transition-all hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0 active:bg-accent-active"
+            className="press inline-flex items-center justify-center rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-on-accent hover:bg-accent-hover"
           >
             See my work
           </a>
-          </MagneticButton>
-          <MagneticButton>
           <TrackedLink
             href="mailto:karankp20120@gmail.com"
             event="social_click"
             eventProps={{ platform: "email", location: "hero" }}
-            className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2.5 font-mono text-sm text-foreground transition-all hover:-translate-y-0.5 hover:bg-foreground/5 active:translate-y-0 active:bg-foreground/10"
+            className="press inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover"
           >
-            Email me
+            Email me <span aria-hidden>&rsaquo;</span>
           </TrackedLink>
-          </MagneticButton>
         </div>
 
-        <div style={{ "--i": 5 } as React.CSSProperties} className="hero-rise mt-6 flex flex-wrap items-center gap-5">
+        <div
+          style={rise(7)}
+          className="hero-rise mt-6 flex flex-wrap items-center justify-center gap-6"
+        >
           {links.map(({ label, href, Icon, platform }) => (
             <TrackedLink
               key={label}
@@ -77,9 +81,9 @@ export default function Hero() {
               aria-label={label}
               event="social_click"
               eventProps={{ platform, location: "hero" }}
-              className="flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
+              className="press flex items-center gap-2 text-sm text-muted hover:text-foreground"
             >
-              <Icon className="h-5 w-5" />
+              <Icon className="h-4 w-4" />
               {label}
             </TrackedLink>
           ))}
@@ -88,18 +92,15 @@ export default function Hero() {
             download
             event="resume_download"
             eventProps={{ location: "hero" }}
-            className="text-sm text-muted transition-colors hover:text-accent"
+            className="press text-sm text-muted hover:text-foreground"
           >
             Resume
           </TrackedLink>
         </div>
-        <div style={{ "--i": 6 } as React.CSSProperties} className="hero-rise">
-          <HeroStats />
-        </div>
-        </div>
-        <HeroDashboard />
-        </div>
-      </HeroFade>
+
+        <HeroResult />
+        <HeroStats />
+      </div>
     </section>
   );
 }

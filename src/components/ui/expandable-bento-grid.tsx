@@ -54,7 +54,7 @@ export default function ExpandableBentoGrid({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[10000] bg-foreground/30"
+            className="fixed inset-0 z-[10000] bg-black/35 backdrop-blur-md"
           />
         )}
       </AnimatePresence>
@@ -68,7 +68,8 @@ export default function ExpandableBentoGrid({
               role="dialog"
               aria-modal="true"
               aria-label={active.title}
-              className="relative flex max-h-[90%] w-full max-w-[560px] flex-col overflow-hidden rounded-[32px] border border-border bg-background"
+              className="relative flex max-h-[90%] w-full max-w-[560px] flex-col overflow-hidden rounded-[28px] border border-border bg-surface shadow-2xl"
+              transition={{ type: "spring", bounce: 0, duration: 0.5 }}
             >
               <button
                 type="button"
@@ -89,12 +90,12 @@ export default function ExpandableBentoGrid({
                 <div className="min-w-0">
                   <motion.h3
                     layoutId={`title-${active.id}-${id}`}
-                    className="font-mono text-xl leading-tight text-foreground"
+                    className="text-xl text-foreground"
                   >
                     {active.title}
                   </motion.h3>
                   {active.subtitle && (
-                    <p className="mt-1 font-mono text-xs text-muted">{active.subtitle}</p>
+                    <p className="mt-1 text-xs text-muted">{active.subtitle}</p>
                   )}
                   {active.period && <p className="text-xs text-muted">{active.period}</p>}
                 </div>
@@ -117,7 +118,7 @@ export default function ExpandableBentoGrid({
                       href={link.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center rounded-full border border-border px-4 py-1.5 font-mono text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                      className="inline-flex items-center rounded-full bg-accent px-4 py-1.5 text-xs font-medium text-on-accent press hover:bg-accent-hover"
                     >
                       {link.label}
                     </a>
@@ -144,7 +145,8 @@ export default function ExpandableBentoGrid({
                 setActive(item);
               }
             }}
-            className="flex cursor-pointer flex-col gap-3 rounded-[32px] border border-border bg-surface p-4 transition-colors hover:border-accent"
+            className="flex cursor-pointer flex-col gap-4 rounded-[28px] border border-border bg-surface p-6 shadow-card press hover:border-accent/50"
+            transition={{ type: "spring", bounce: 0, duration: 0.5 }}
           >
             <div className="flex items-start gap-3">
               <motion.div
@@ -157,18 +159,18 @@ export default function ExpandableBentoGrid({
                 <div className="flex items-start justify-between gap-2">
                   <motion.h3
                     layoutId={`title-${item.id}-${id}`}
-                    className="font-mono text-base leading-snug text-foreground"
+                    className="text-base text-foreground"
                   >
                     {item.title}
                   </motion.h3>
                   {item.tag && (
-                    <span className="shrink-0 rounded-full border border-border px-2.5 py-0.5 text-[11px] font-medium text-muted">
+                    <span className="shrink-0 rounded-full bg-surface-2 px-2.5 py-0.5 text-[11px] font-medium text-muted">
                       {item.tag}
                     </span>
                   )}
                 </div>
                 {item.subtitle && (
-                  <p className="mt-1 font-mono text-xs text-muted">{item.subtitle}</p>
+                  <p className="mt-1 text-xs text-muted">{item.subtitle}</p>
                 )}
                 {item.period && <p className="text-xs text-muted">{item.period}</p>}
               </div>

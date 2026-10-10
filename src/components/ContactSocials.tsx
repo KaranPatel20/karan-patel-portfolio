@@ -18,7 +18,7 @@ export default function ContactSocials() {
   }));
 
   return (
-    <div className="mt-20 flex justify-center">
+    <div className="mt-16 flex justify-center">
       <MaskedAvatars avatars={avatars} size={60} column={50} border={4} movement={0.55} />
     </div>
   );
