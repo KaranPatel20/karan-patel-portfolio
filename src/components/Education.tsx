@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Section from "@/components/Section";
+import { card, cardGap } from "@/lib/layout";
 
 const education = [
   {
@@ -21,11 +22,11 @@ const education = [
 export default function Education() {
   return (
     <Section id="education" title="Education" alt>
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className={`grid ${cardGap} sm:grid-cols-2`}>
         {education.map((e) => (
           <div
             key={e.degree}
-            className="flex gap-4 rounded-[28px] border border-border bg-surface p-6 shadow-card"
+            className={`flex gap-4 ${card}`}
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white p-2 shadow-sm ring-1 ring-black/10">
               <Image

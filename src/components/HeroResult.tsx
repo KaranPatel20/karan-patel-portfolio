@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import TrackedLink from "@/components/TrackedLink";
+import { card } from "@/lib/layout";
 
 // Real result from the Living Flood Map hackathon project (see Projects).
 const before = 0.65;
@@ -40,7 +41,7 @@ export default function HeroResult() {
   return (
     <div
       style={{ "--i": 8 } as React.CSSProperties}
-      className="hero-rise mx-auto mt-10 w-full max-w-4xl rounded-[32px] border border-border bg-surface p-6 text-left shadow-card sm:p-8"
+      className={`hero-rise mx-auto mt-10 w-full max-w-4xl ${card} text-left`}
     >
       <p className="text-sm text-muted">Living Flood Map, hackathon project</p>
 

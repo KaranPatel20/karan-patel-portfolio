@@ -3,7 +3,7 @@ import Section from "@/components/Section";
 export default function About() {
   return (
     <Section id="about" title="About" alt>
-      <p className="max-w-4xl text-justify text-base leading-relaxed text-muted hyphens-auto">
+      <p className="text-justify text-base leading-relaxed text-muted hyphens-auto">
         I sit between the people who need answers and the data that has them. A couple of years
         in retail, a wildlife nonprofit, and some tech teams taught me to gather requirements,
         build dashboards, and chase down why the numbers didn&apos;t add up, and an M.Sc. in

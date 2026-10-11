@@ -1,4 +1,5 @@
 import Section from "@/components/Section";
+import { card, cardGap } from "@/lib/layout";
 const primary = [
   {
     title: "Requirements & Analysis",
@@ -78,7 +79,7 @@ function SkillColumn({
 }) {
   return (
     <div
-      className={`rounded-[28px] border border-border bg-surface p-6 shadow-card transition-transform duration-300 hover:-translate-y-0.5 ${className}`}
+      className={`${card} transition-transform duration-300 hover:-translate-y-0.5 ${className}`}
     >
       <h3 className="text-base text-foreground">{title}</h3>
       <div className="mt-4 flex flex-wrap gap-2">
@@ -98,7 +99,7 @@ function SkillColumn({
 export default function Skills() {
   return (
     <Section id="skills" title="Skills, tools and technologies">
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className={`grid ${cardGap} sm:grid-cols-2 lg:grid-cols-3`}>
         {primary.map((group) => (
           <SkillColumn key={group.title} title={group.title} items={group.items} />
         ))}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { trackEvent } from "@/lib/analytics";
+import { container } from "@/lib/layout";
 import { FaBars, FaXmark } from "react-icons/fa6";
 
 const links = [
@@ -22,7 +23,7 @@ export default function Header() {
 
   return (
     <header className="glass sticky top-0 z-50 border-b border-border/60">
-      <div className="mx-auto flex h-[52px] max-w-7xl items-center justify-between px-6 sm:px-12 lg:px-16">
+      <div className={`${container} flex h-[52px] items-center justify-between`}>
         <a href="#top" className="press text-lg font-semibold tracking-tight text-foreground">
           kp.
         </a>

@@ -6,6 +6,7 @@ import { FaXmark } from "react-icons/fa6";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
+import { card, cardGap } from "@/lib/layout";
 
 // Adapted from Vengeance UI's ExpandableBentoGrid: real links in the footer
 // instead of a hardcoded "Visit" button, Organic tokens instead of the blue theme.
@@ -69,7 +70,7 @@ export default function ExpandableBentoGrid({
               role="dialog"
               aria-modal="true"
               aria-label={active.title}
-              className="relative flex max-h-[90%] w-full max-w-[560px] flex-col overflow-hidden rounded-[28px] border border-border bg-surface shadow-2xl"
+              className="relative flex max-h-[90%] w-full max-w-[560px] flex-col overflow-hidden rounded-[32px] border border-border bg-surface shadow-2xl"
               transition={{ type: "spring", bounce: 0, duration: 0.5 }}
             >
               <button
@@ -132,7 +133,7 @@ export default function ExpandableBentoGrid({
         )}
       </AnimatePresence>
 
-      <ul className={cn("grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3", className)}>
+      <ul className={cn(`grid w-full grid-cols-1 ${cardGap} md:grid-cols-2 lg:grid-cols-3`, className)}>
         {items.map((item) => (
           <motion.li
             layoutId={`card-${item.id}-${id}`}
@@ -150,7 +151,7 @@ export default function ExpandableBentoGrid({
                 setActive(item);
               }
             }}
-            className="flex cursor-pointer flex-col gap-4 rounded-[28px] border border-border bg-surface p-6 shadow-card press hover:border-accent/50"
+            className={`flex cursor-pointer flex-col gap-4 ${card} press hover:border-accent/50`}
             transition={{ type: "spring", bounce: 0, duration: 0.5 }}
           >
             <div className="flex items-start gap-3">

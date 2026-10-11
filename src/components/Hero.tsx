@@ -4,6 +4,7 @@ import HeroRotator from "@/components/HeroRotator";
 import HeroTitle from "@/components/HeroTitle";
 import HeroResult from "@/components/HeroResult";
 import HeroStats from "@/components/HeroStats";
+import { container } from "@/lib/layout";
 
 const links = [
   {
@@ -30,7 +31,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,var(--accent-soft),transparent)]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-14 pt-14 text-center sm:px-12 sm:pb-16 sm:pt-20 lg:px-16">
+      <div className={`relative ${container} pb-14 pt-14 text-center sm:pb-16 sm:pt-20`}>
         <p style={rise(0)} className="hero-rise text-sm font-semibold text-accent">
           Data Analyst / Software Developer
         </p>

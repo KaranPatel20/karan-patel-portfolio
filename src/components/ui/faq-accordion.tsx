@@ -22,19 +22,19 @@ export function FaqAccordion({
   const [activeId, setActiveId] = useState<string | null>(null);
 
   return (
-    <ul className={cn("flex w-full flex-col gap-4", className)}>
+    <ul className={cn("flex w-full flex-col gap-6", className)}>
       {items.map((item) => {
         const isActive = activeId === item.id;
         return (
           <li
             key={item.id}
-            className="overflow-hidden rounded-[28px] border border-border bg-surface shadow-card"
+            className="overflow-hidden rounded-[32px] border border-border bg-surface shadow-card"
           >
             <button
               type="button"
               onClick={() => setActiveId(isActive ? null : item.id)}
               aria-expanded={isActive}
-              className="flex w-full items-center gap-4 p-5 text-left press"
+              className="flex w-full items-center gap-4 p-6 text-left press sm:p-8"
             >
               <div className="min-w-0 flex-1">{item.header}</div>
               <FaChevronDown
@@ -51,7 +51,7 @@ export function FaqAccordion({
               )}
             >
               <div className="overflow-hidden">
-                <div className="border-t border-border px-5 pb-6 pt-5 sm:pl-[5.5rem]">
+                <div className="border-t border-border px-6 pb-6 pt-6 sm:px-8 sm:pb-8">
                   {item.content}
                 </div>
               </div>

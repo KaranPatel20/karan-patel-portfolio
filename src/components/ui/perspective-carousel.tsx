@@ -4,6 +4,7 @@ import * as React from "react";
 import { animate, motion, useMotionValue, useReducedMotion } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
+import { card } from "@/lib/layout";
 
 // Adapted from Vengeance UI's PerspectiveCarousel. Slides are cards. The track follows the
 // pointer 1:1 while dragging, rubber-bands at the ends, and on release projects the
@@ -145,7 +146,7 @@ export default function PerspectiveCarousel({
                   transition={slideTransition}
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <div className="rounded-[28px] border border-border bg-surface p-6 shadow-card">
+                  <div className={card}>
                     {item.summary}
                     <div
                       className={cn(
@@ -164,7 +165,7 @@ export default function PerspectiveCarousel({
                       type="button"
                       aria-label={`Show ${item.title}`}
                       onClick={() => goTo(i)}
-                      className="absolute inset-0 z-10 cursor-pointer rounded-[28px]"
+                      className="absolute inset-0 z-10 cursor-pointer rounded-[32px]"
                     />
                   )}
                 </motion.div>
