@@ -103,6 +103,8 @@ function clickTarget(name: string, props: Record<string, string | number | boole
       return `project-open-${part("project")}`;
     case "project_link_click":
       return `project-link-${part("project")}-${part("link")}`;
+    case "skills_filter":
+      return `skills-filter-${part("filter")}`;
     case "credential_click":
       return `credential-${part("certification")}`;
     default:
