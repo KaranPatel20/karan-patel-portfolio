@@ -70,7 +70,6 @@ export function MaskedAvatars({
                     style={{
                         height: column,
                         gridAutoColumns: column,
-                        transform: `translateX(${(size - column) * 0.5}px)`,
                     }}
                     
                 >
@@ -160,7 +159,6 @@ export function MaskedAvatars({
                                         style={{
                                             maskImage: index === 0 ? "none" : maskImage,
                                             WebkitMaskImage: index === 0 ? "none" : maskImage,
-                                            paddingLeft: index === 0 ? 0 : size - column,
                                             maskSize: "100% 400%",
                                             WebkitMaskSize: "100% 400%",
                                             maskRepeat: "no-repeat",
