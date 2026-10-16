@@ -15,6 +15,10 @@
   --accent-2: #5f7048;
   --accent-2-soft: #e4ecd2;
   --on-accent: #ffffff;
+  --scene-flood: #b5602b;
+  --scene-noise: #5d6b82;
+  --scene-neutral: #9a9385;
+  --scene-review: #0f8f86;
   --glass: rgba(248, 239, 223, 0.72);
   --shadow-card: 0 1px 2px rgba(64, 40, 16, 0.05), 0 8px 28px rgba(64, 40, 16, 0.07);
 }
@@ -53,6 +57,10 @@
     --accent-2: #aebf92;
     --accent-2-soft: #272e1b;
     --on-accent: #1f1c18;
+    --scene-flood: #f6a06b;
+    --scene-noise: #8da0bd;
+    --scene-neutral: #8d877b;
+    --scene-review: #4fd1c5;
     --glass: rgba(31, 28, 24, 0.72);
     --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 28px rgba(0, 0, 0, 0.35);
   }
@@ -72,6 +80,10 @@
   --accent-2: #aebf92;
   --accent-2-soft: #272e1b;
   --on-accent: #1f1c18;
+  --scene-flood: #f6a06b;
+  --scene-noise: #8da0bd;
+  --scene-neutral: #8d877b;
+  --scene-review: #4fd1c5;
   --glass: rgba(31, 28, 24, 0.72);
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 28px rgba(0, 0, 0, 0.35);
 }
@@ -90,6 +102,10 @@
   --accent-2: #5f7048;
   --accent-2-soft: #e4ecd2;
   --on-accent: #ffffff;
+  --scene-flood: #b5602b;
+  --scene-noise: #5d6b82;
+  --scene-neutral: #9a9385;
+  --scene-review: #0f8f86;
   --glass: rgba(248, 239, 223, 0.72);
   --shadow-card: 0 1px 2px rgba(64, 40, 16, 0.05), 0 8px 28px rgba(64, 40, 16, 0.07);
 }
@@ -271,26 +287,113 @@ button {
   }
 }
 
-/* Continuous, low-key motion: a breathing glow behind the hero. */
-@keyframes glow-breathe {
-  0%,
-  100% {
-    opacity: 0.75;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
+
+/* Scroll-driven 3D hero: a tall track with a sticky stage pinned under the 52px header. */
+.hero-track {
+  position: relative;
+  height: 360vh;
 }
 
-.hero-glow {
-  animation: glow-breathe 14s ease-in-out infinite;
-  transform-origin: 50% 0%;
+.hero-stage {
+  position: sticky;
+  top: 52px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100svh - 52px);
+  min-height: 520px;
+  overflow: hidden;
 }
 
+/* Reduced motion, or no WebGL: no pinning, no scrubbing. All three captions show as a list. */
 @media (prefers-reduced-motion: reduce) {
-  .hero-glow {
-    animation: none;
+  .hero-track {
+    height: auto;
+  }
+  .hero-stage {
+    position: relative;
+    top: 0;
+    height: auto;
+    min-height: calc(100svh - 52px);
+    overflow: visible;
+  }
+  .hero-rail,
+  .hero-hint {
+    display: none !important;
+  }
+  .hero-captions {
+    display: block;
+  }
+  .hero-captions li {
+    opacity: 1 !important;
+  }
+}
+
+.hero-track[data-static="true"] {
+  height: auto;
+}
+.hero-track[data-static="true"] .hero-stage {
+  position: relative;
+  top: 0;
+  height: auto;
+  min-height: calc(100svh - 52px);
+  overflow: visible;
+}
+.hero-track[data-static="true"] .hero-rail,
+.hero-track[data-static="true"] .hero-hint {
+  display: none !important;
+}
+.hero-track[data-static="true"] .hero-captions {
+  display: block;
+}
+.hero-track[data-static="true"] .hero-captions li {
+  opacity: 1 !important;
+}
+
+/* Short phone screens: tighten the copy and the readout so the cloud keeps room between them. */
+@media (max-height: 760px) {
+  .hero-stage > div {
+    gap: 0.5rem;
+    padding-block: 0.75rem;
+  }
+  .hero-title {
+    margin-top: 0.25rem;
+  }
+  .hero-title h1 {
+    font-size: 2.25rem;
+  }
+  .hero-sub {
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+  .hero-ctas {
+    margin-top: 0.75rem;
+  }
+  .hero-card {
+    padding: 0.875rem;
+  }
+  .hero-num {
+    font-size: 1.875rem;
+  }
+  .hero-captions {
+    font-size: 0.75rem;
+  }
+  .hero-legend {
+    margin-top: 0.5rem;
+    font-size: 0.6875rem;
+  }
+  .hero-card-actions {
+    margin-top: 0.625rem;
+  }
+  .hero-foot {
+    margin-top: 0.25rem;
+    font-size: 0.625rem;
+  }
+}
+
+/* Desktop layout: the headline sits in a 45% column, so size it to that column. */
+@media (min-width: 900px) {
+  .hero-title h1 {
+    font-size: clamp(2.5rem, 4.4vw, 4.5rem);
   }
 }
