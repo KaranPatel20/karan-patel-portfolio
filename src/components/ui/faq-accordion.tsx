@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
+import { RevealItem } from "@/components/Reveal";
 
 // Adapted from Vengeance UI's FaqAccordion: header is a node (logo + title + dates),
 // restyled with the site's Organic tokens.
@@ -23,10 +24,12 @@ export function FaqAccordion({
 
   return (
     <ul className={cn("flex w-full flex-col gap-6", className)}>
-      {items.map((item) => {
+      {items.map((item, index) => {
         const isActive = activeId === item.id;
         return (
-          <li
+          <RevealItem
+            as="li"
+            order={index + 1}
             key={item.id}
             className="overflow-hidden rounded-[32px] border border-border bg-surface shadow-card"
           >
@@ -56,7 +59,7 @@ export function FaqAccordion({
                 </div>
               </div>
             </div>
-          </li>
+          </RevealItem>
         );
       })}
     </ul>

@@ -270,3 +270,27 @@ button {
     animation: none;
   }
 }
+
+/* Continuous, low-key motion: a breathing glow behind the hero. */
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.hero-glow {
+  animation: glow-breathe 14s ease-in-out infinite;
+  transform-origin: 50% 0%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow {
+    animation: none;
+  }
+}

@@ -109,7 +109,7 @@ export default function Experience() {
   }));
 
   return (
-    <Section id="experience" title="Experience" alt>
+    <Section id="experience" title="Experience" alt staggerContent>
       <FaqAccordion items={items} />
     </Section>
   );

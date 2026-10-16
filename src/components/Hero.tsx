@@ -28,7 +28,7 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,var(--accent-soft),transparent)]"
+        className="hero-glow pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,var(--accent-soft),transparent)]"
       />
 
       <div className={`relative ${container} pb-14 pt-14 text-center sm:pb-16 sm:pt-20`}>

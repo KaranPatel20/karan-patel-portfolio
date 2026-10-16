@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import { trackEvent } from "@/lib/analytics";
 import { container } from "@/lib/layout";
 import { FaBars, FaXmark } from "react-icons/fa6";
@@ -20,6 +20,33 @@ const links = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
+
+  // Highlight the nav link of the section currently crossing the middle of the viewport.
+  useEffect(() => {
+    const sections = links
+      .map((link) => document.querySelector<HTMLElement>(link.href))
+      .filter((el): el is HTMLElement => el !== null);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((el) => observer.observe(el));
+    const top = () => {
+      if (window.scrollY < 200) setActiveSection(null);
+    };
+    window.addEventListener("scroll", top, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", top);
+    };
+  }, []);
 
   return (
     <header className="glass sticky top-0 z-50 border-b border-border/60">
@@ -33,7 +60,10 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => trackEvent("nav_click", { section: link.label.toLowerCase(), location: "header" })}
-              className="transition-colors hover:text-foreground"
+              aria-current={activeSection === link.href ? "true" : undefined}
+              className={`transition-colors hover:text-foreground ${
+                activeSection === link.href ? "font-medium text-accent" : ""
+              }`}
             >
               {link.label}
             </a>
@@ -57,6 +87,14 @@ export default function Header() {
           {open ? <FaXmark className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
         </button>
       </div>
+
+      {!reduce && (
+        <motion.div
+          aria-hidden
+          style={{ scaleX: progress }}
+          className="absolute inset-x-0 bottom-[-1px] h-[2px] origin-left bg-accent"
+        />
+      )}
 
       <AnimatePresence initial={false}>
         {open && (
