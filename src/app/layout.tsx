@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { flagsInitScript } from "@/lib/analytics";
 import "./globals.css";
 
+// Fallback for platforms without SF Pro; the stack in globals.css prefers the system font.
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
   subsets: ["latin"],
 });
 
@@ -34,11 +31,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: flagsInitScript }} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
         {children}

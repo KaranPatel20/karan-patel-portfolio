@@ -1,38 +1,52 @@
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import Section from "@/components/Section";
+import CertificationsCarousel, { type CertificationData } from "@/components/CertificationsCarousel";
 
-const certifications = [
+const certifications: CertificationData[] = [
   {
-    name: "Preparing Data for Analysis with Microsoft Excel",
+    name: "Harnessing the Power of Data with Power BI",
+    icon: "microsoft",
     issuer: "Coursera (Microsoft)",
     date: "Sep 2026",
+    href: "https://coursera.org/share/9f281f04c9370fff7f8c7a9813dc07eb",
+  },
+  {
+    name: "Preparing Data for Analysis with Microsoft Excel",
+    icon: "microsoft",
+    issuer: "Coursera (Microsoft)",
+    date: "Aug 2026",
     href: "https://coursera.org/share/7c69c7b1ebfc1c70378d241bd332a7d1",
   },
   {
     name: "Machine Learning in Production",
+    icon: "brain",
     issuer: "DeepLearning.AI",
     date: "May 2026",
     href: "https://coursera.org/share/0ba444525a2508539daea61db5b66344",
   },
   {
     name: "Oracle Generative AI Professional",
+    icon: "certificate",
     issuer: "Oracle",
     date: "Oct 2025",
     href: "https://drive.google.com/file/d/1HZApNai0pe1iOnR59PgtpIRwN2cWe5oE/view?usp=drive_link",
   },
   {
     name: "Foundations: Data, Data, Everywhere",
+    icon: "google",
     issuer: "Coursera (Google)",
     date: "Jan 2024",
     href: "https://www.coursera.org/learn/foundations-data",
   },
   {
     name: "Basic Image Classification with TensorFlow",
+    icon: "tensorflow",
     issuer: "Coursera",
     date: "Jan 2024",
     href: "https://www.coursera.org/projects/tensorflow-beginner-basic-image-classification",
   },
   {
     name: "Introduction to TensorFlow for AI, ML & Deep Learning",
+    icon: "tensorflow",
     issuer: "Coursera (DeepLearning.AI)",
     date: "Jul 2021",
     href: "https://www.coursera.org/learn/introduction-tensorflow",
@@ -41,33 +55,8 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="border-t border-border">
-      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="font-mono text-sm text-accent">Certifications</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {certifications.map((cert) => (
-            <div
-              key={cert.name}
-              className="group relative flex h-full flex-col justify-between rounded-lg border border-border bg-surface p-5 transition-all hover:border-accent hover:shadow-md"
-            >
-              <FaArrowUpRightFromSquare className="absolute right-5 top-5 h-4 w-4 text-accent opacity-0 transition-opacity group-hover:opacity-100" />
-              <div className="pr-6">
-                <p className="text-sm font-semibold text-foreground">{cert.name}</p>
-                <p className="mt-1 text-xs text-muted">{cert.issuer}</p>
-                <p className="text-xs text-muted">{cert.date}</p>
-              </div>
-              <a
-                href={cert.href}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-block w-fit rounded-md border border-border px-4 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
-              >
-                Show Credentials
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <Section id="certifications" title="Certifications" hint="Swipe, use the arrows, or click a side card.">
+      <CertificationsCarousel certifications={certifications} />
+    </Section>
   );
 }

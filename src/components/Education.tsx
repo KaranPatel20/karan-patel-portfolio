@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Section from "@/components/Section";
+import { RevealItem } from "@/components/Reveal";
+import { card, cardGap } from "@/lib/layout";
 
 const education = [
   {
@@ -19,32 +22,29 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="border-t border-border bg-surface/40">
-      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 py-16">
-        <h2 className="font-mono text-sm text-accent">Education</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          {education.map((e) => (
-            <div key={e.degree} className="flex gap-3">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
-                <Image
-                  src={e.logo}
-                  alt={`${e.school} logo`}
-                  width={40}
-                  height={40}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{e.degree}</p>
-                <p className="text-sm text-muted">{e.school}</p>
-                <p className="text-xs text-muted">
-                  {e.period} · {e.detail}
-                </p>
-              </div>
+    <Section id="education" title="Education" alt staggerContent>
+      <div className={`grid ${cardGap} sm:grid-cols-2`}>
+        {education.map((e, i) => (
+          <RevealItem key={e.degree} order={i + 1} className={`flex gap-4 ${card}`}>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white p-2 shadow-sm ring-1 ring-black/10">
+              <Image
+                src={e.logo}
+                alt={`${e.school} logo`}
+                width={44}
+                height={44}
+                className="h-full w-full object-contain"
+              />
             </div>
-          ))}
-        </div>
+            <div>
+              <h3 className="text-base text-foreground">{e.degree}</h3>
+              <p className="mt-0.5 text-sm text-muted">{e.school}</p>
+              <p className="mt-0.5 text-xs text-muted">
+                {e.period} · {e.detail}
+              </p>
+            </div>
+          </RevealItem>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }
