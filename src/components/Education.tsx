@@ -1,24 +1,9 @@
 import Image from "next/image";
 import Section from "@/components/Section";
+import { education } from "@/data/portfolio";
 import { RevealItem } from "@/components/Reveal";
 import { card, cardGap } from "@/lib/layout";
 
-const education = [
-  {
-    degree: "M.Sc. Computer Science",
-    school: "Lakehead University, Thunder Bay, Canada",
-    logo: "/logos/lakehead-crest.png",
-    period: "Sep 2022 – May 2024",
-    detail: "GPA: 3.88 / 4.0",
-  },
-  {
-    degree: "B.Tech, Information Technology",
-    school: "Charotar University of Science and Technology, India",
-    logo: "/logos/charusat.png",
-    period: "Jul 2018 – May 2022",
-    detail: "GPA: 3.80 / 4.0",
-  },
-];
 
 export default function Education() {
   return (

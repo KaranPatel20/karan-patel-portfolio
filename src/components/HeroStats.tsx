@@ -1,12 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { stats } from "@/data/portfolio";
 
-const stats = [
-  { value: 3, suffix: "+", label: "years in data and software" },
-  { value: 5, suffix: "", label: "shipped projects" },
-  { value: 6, suffix: "", label: "certifications" },
-];
 
 function CountUp({ to, suffix }: { to: number; suffix: string }) {
   const [value, setValue] = useState(0);
